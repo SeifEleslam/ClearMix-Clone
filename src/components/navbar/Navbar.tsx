@@ -1,5 +1,5 @@
 import { m } from "framer-motion";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Logo } from "./Logo";
 import { Menu } from "./Menu";
 import { MenuBody } from "./MenuBody";
@@ -7,29 +7,30 @@ import { MenuBody } from "./MenuBody";
 export const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [show, setShow] = useState("top");
-  const [lastScrollY, setLastScrollY] = useState(0);
+  const lastScrollY = useRef(0);
 
   useEffect(() => {
-    window.addEventListener("scroll", () => controlNavbar(window.scrollY));
+    window.addEventListener("scroll", controlNavbar);
 
     // cleanup function
     return () => {
-      window.removeEventListener("scroll", () => controlNavbar(window.scrollY));
+      window.removeEventListener("scroll", controlNavbar);
     };
-  });
+  }, []);
 
-  const controlNavbar = (scroll: number) => {
-    if (scroll <= 30) {
+  const controlNavbar = () => {
+    if (window.scrollY <= 30) {
       setShow("top");
-    } else if (scroll > lastScrollY) {
+      lastScrollY.current = window.scrollY;
+    } else if (window.scrollY - 30 > lastScrollY.current && show !== "hide") {
       // if scroll down hide the navbar
+      lastScrollY.current = window.scrollY;
       setShow("hide");
-    } else {
+    } else if (show !== "show" && window.scrollY + 30 < lastScrollY.current) {
       // if scroll up show the navbar
+      lastScrollY.current = window.scrollY;
       setShow("show");
     }
-    // remember current page location to use in the next move
-    setLastScrollY(scroll);
   };
 
   const navbar = [
@@ -44,6 +45,7 @@ export const Navbar = () => {
     visible: {
       y: 0,
       background: "rgba(8, 8, 16, 1)",
+      transition: { type: "tween", delay: 0.2, duration: 0.2 },
     },
     top: {
       y: 0,
@@ -62,6 +64,7 @@ export const Navbar = () => {
         className="z-50 w-full fixed overflow-hidden"
         variants={container}
         initial={"hidden"}
+        transition={{ default: { type: "tween", duration: 0.3 } }}
         animate={
           show === "show"
             ? "visible"

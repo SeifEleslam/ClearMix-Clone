@@ -102,17 +102,16 @@ export const LoginButton = ({
   children: React.ReactNode;
   colorClass?: string;
 }) => {
-  const buttonVariant = { hover: { color: "white" } };
+  const buttonVariant = { hover: { color: "#fff" } };
   const bgVariant = {
     hover: { scaleY: 4, scaleX: 1.5 },
     rest: { scaleY: 0, scaleX: 1 },
   };
   return (
     <m.button
-      className={`${widthClass} overflow-hidden text-prim bg-bgsec relative rounded-full text-txdef`}
+      className={`${widthClass} overflow-hidden text-prim bg-bgsec relative rounded-full`}
       whileHover="hover"
       variants={buttonVariant}
-      animate={{ transitionDuration: "0.3s" }}
     >
       <p className="z-10 relative">{children}</p>
       <m.div

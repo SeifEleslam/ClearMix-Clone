@@ -25,11 +25,11 @@ export const Section2 = () => {
     emi,
   ];
   return (
-    <div className="relative text-center p-6 mt-10 z-20">
+    <div className="relative text-center p-6 mt-20 z-20">
       <h2 className="md:text-5xl textgrd xl:text-8xl lg:text-7xl text-4xl">
         TRUSTED BY TEAMS AT
       </h2>
-      <div className="flex flex-wrap items-center justify-center space-y-20 mt-10">
+      <div className="flex flex-wrap items-center justify-center space-y-20 mt-0">
         <div></div>
         {images.map((val, i) => {
           return <TrustedComp key={i} src={val} />;
@@ -41,8 +41,8 @@ export const Section2 = () => {
 
 export const TrustedComp = ({ src }: { src: StaticImageData }) => {
   return (
-    <div className="w-[50%] md:w-[33%] lg:w-fit px-2 lg:px-6">
-      <Image src={src} alt={""} className="w-fit mx-auto h-10" />
+    <div className="w-[50%] md:w-auto px-6 lg:px-6">
+      <Image src={src} alt={""} className=" h-fit w-[10rem] mx-auto " />
     </div>
   );
 };
