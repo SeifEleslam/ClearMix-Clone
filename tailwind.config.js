@@ -15,6 +15,7 @@ module.exports = {
         sec: "#ff5800",
         txprim: "#9b9bc9",
         txdef: "#fff",
+        txsub: "#4f4f66",
         bgprim: "#080810",
         bgsec: "#252536",
         // dark theme

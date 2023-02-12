@@ -4,6 +4,7 @@ import { domAnimation, LazyMotion } from "framer-motion";
 import { BehindBg } from "../src/components/BehindBg";
 import { Section1 } from "../src/components/section1/section1";
 import { Section2 } from "../src/components/section2/section2";
+import { Section3 } from "@/src/components/section3/section3";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
         <div className="mx-auto mt-[10rem] mb-[5rem]">
           <Section1 />
           <Section2 />
+          <Section3 />
         </div>
       </main>
     </LazyMotion>

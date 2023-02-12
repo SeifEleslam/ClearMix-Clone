@@ -10,6 +10,7 @@ import shifts from "../../assets/images/shifts.png";
 import jaffe from "../../assets/images/jaffe.png";
 import kron from "../../assets/images/kron.png";
 import qomplx from "../../assets/images/qomplx.png";
+import { m } from "framer-motion";
 
 export const Section2 = () => {
   const images = [
@@ -26,26 +27,53 @@ export const Section2 = () => {
   ];
   return (
     <div className="relative text-center mx-auto p-6 mt-20 z-20 max-w-[85rem] ">
-      <p className="text-txprim tracking-[1.5vw]">
-        WIDELY USED BY PROFESSTIONALS
+      <p className="text-txsub mb-4 tracking-[1.5vw]">
+        WIDELY USED BY PROFESSIONALS
       </p>
-      <h2 className="md:text-5xl textgrd xl:text-8xl lg:text-7xl text-4xl">
+      <m.h2
+        className="md:text-5xl textgrd xl:text-8xl lg:text-7xl text-4xl"
+        initial={{ opacity: 0, y: 40 }}
+        viewport={{ once: true }}
+        whileInView={{ opacity: 1, y: 0 }}
+      >
         TRUSTED BY TEAMS AT
-      </h2>
-      <div className="flex bg-prim/[.1] shadow-2xl flex-wrap items-center md:pb-10 md:px-5  pb-10 justify-center space-y-10 md:rounded-full rounded-2xl mt-10">
+      </m.h2>
+      <div className="flex bg-prim/[.1] shadow-2xl flex-wrap items-center md:px-5 pb-10 justify-center space-y-10 md:rounded-full rounded-2xl mt-10">
         <div></div>
         {images.map((val, i) => {
-          return <TrustedComp key={i} src={val} />;
+          return <TrustedComp key={i} i={i} src={val} />;
         })}
       </div>
     </div>
   );
 };
 
-export const TrustedComp = ({ src }: { src: StaticImageData }) => {
+export const TrustedComp = ({
+  src,
+  i,
+}: {
+  src: StaticImageData;
+  i: number;
+}) => {
   return (
-    <div className="w-[50%] md:w-auto px-6 lg:px-10">
-      <Image src={src} alt={""} className=" h-fit w-[10rem] mx-auto " />
-    </div>
+    <m.div
+      className="relative w-[50%] max-h-[5rem] md:w-auto px-6 lg:px-10"
+      initial={{
+        opacity: 0,
+        y: 30,
+      }}
+      viewport={{ once: true }}
+      whileInView={{
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.3, delay: 0.1 * (i + 1) },
+      }}
+    >
+      <Image
+        src={src}
+        alt={""}
+        className=" max-h-[5rem] w-auto max-w-[100%] md:max-w-[10rem] mx-auto "
+      />
+    </m.div>
   );
 };
