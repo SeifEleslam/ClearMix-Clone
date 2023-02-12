@@ -46,7 +46,8 @@ export const MenuBody = ({ open }: { open: boolean }) => {
           <m.div
             className="bg-bgprim absolute top-[-10rem] right-[-10rem] z-0 w-[20rem] h-[20rem] rounded-full"
             initial={{ scale: 0.25 }}
-            animate={{ transitionDuration: ".3s", scale: 11 }}
+            animate={{ scale: 8 }}
+            transition={{ duration: 0.5, type: "tween" }}
           ></m.div>
         </m.div>
       )}
@@ -66,7 +67,7 @@ const Item = ({ children, i }: { children: React.ReactNode; i: number }) => {
       animate={{
         opacity: 1,
         y: 0,
-        transition: { duration: 0.3, delay: 0.1 * i },
+        transition: { duration: 0.3, delay: 0.1 * (i + 1) },
       }}
     >
       {children}

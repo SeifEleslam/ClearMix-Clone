@@ -8,11 +8,11 @@ export const MainVid = () => {
     target: secRef,
     offset: ["start center", "end center"],
   });
-  const width = useTransform(scrollYProgress, [0, 1], ["50rem", "100rem"]);
+  const width = useTransform(scrollYProgress, [0, 1], ["50rem", "85rem"]);
   const borderRadius = useTransform(scrollYProgress, [0, 1], [400, 20]);
 
   return (
-    <div ref={secRef} className="md:h-[150vh] h-fit mt-20">
+    <div ref={secRef} className="md:h-[150vh] h-fit mt-20 mx-6">
       <m.div
         className="left-0 right-0 w-[50rem] max-w-[100%] overflow-hidden mx-auto w-[50%] sticky top-32"
         style={{ width }}

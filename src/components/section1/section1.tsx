@@ -35,7 +35,7 @@ export const Section1 = () => {
         </m.h1>
         <ChangeText />
       </div>
-      <div ref={secRef} className="relative">
+      <div ref={secRef} className="relative overflow-x-clip w-full">
         <MutedPlayer
           newClasses={
             "overflow-hidden rounded-full border-[2px]" +
@@ -60,6 +60,7 @@ export const Section1 = () => {
           }}
           style={{ y: ya }}
         />
+
         <m.h1
           className="md:text-5xl xl:text-8xl lg:text-7xl text-4xl mb-4"
           initial={{ opacity: 0, y: 40 }}

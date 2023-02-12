@@ -5,6 +5,7 @@
 html {
   max-width: 100vw;
   overflow-x: hidden;
+  height:fit-content;
 }
 
 .font-outline {
@@ -55,7 +56,15 @@ html {
 .schshadow:hover {
   box-shadow: 0 4px 18px 0 rgba(230, 15, 71, .4), 0 6px 45px 0 rgba(255, 88, 0, .4);
 }
+.trust{
+  background: -webkit-linear-gradient(0.85turn,
+  rgba(255, 88, 0, .15),
+  rgba(255, 88, 0, .25),
+  rgba(230, 15, 71, .25), 
+  rgba(230, 15, 71, .15));
+}
 
 body {
+  max-width: 100vw;
   background-color: #080810;
 }
