@@ -11,6 +11,7 @@ export const MenuBody = ({ open }: { open: boolean }) => {
           initial={{ opacity: 0, scale: 1 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 1.2 }}
+          transition={{ duration: 0.1 }}
         >
           <div className="w-full h-full p-2 overflow-scroll">
             <div className="flex relative z-10 flex-col w-full h-full min-h-[500px] ">
@@ -36,7 +37,7 @@ export const MenuBody = ({ open }: { open: boolean }) => {
                 className="flex flex-col md:flex-row justify-center items-center h-fit p-4 md:space-x-10 md:space-y-0 space-y-5"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 0.4, type: "tween" }}
+                transition={{ delay: 0.4 }}
               >
                 <LoginButton widthClass="w-full p-6">LOGIN</LoginButton>
                 <SchButton widthClass="w-full">SCHEDULE A CALL</SchButton>
@@ -48,7 +49,7 @@ export const MenuBody = ({ open }: { open: boolean }) => {
             className="bg-bgprim absolute top-[-10rem] right-[-10rem] z-0 w-[20rem] h-[20rem] rounded-full"
             initial={{ scale: 1 }}
             animate={{ scale: 8 }}
-            transition={{ duration: 0.5, type: "tween" }}
+            transition={{ duration: 0.4 }}
           ></m.div>
         </m.div>
       )}

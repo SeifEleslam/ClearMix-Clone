@@ -54,7 +54,7 @@ export const Section3 = () => {
             variants={{}}
           />
         </div>
-        <div className="absolute origin-left w-[17rem] h-[5rem] rounded-full py-5 bg-bgprim shadow-gold left-[25%] bottom-[-1.5rem] scale-[.75] md:scale-[1.2] xl:scale-[1.7]">
+        <div className="absolute origin-left w-[17rem] h-[5rem] rounded-full py-5 bg-bgprim/50 backdrop-blur shadow-gold left-[25%] bottom-[-1.5rem] scale-[.75] md:scale-[1.2] xl:scale-[1.7]">
           <VoiceWaves />
         </div>
       </div>

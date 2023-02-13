@@ -8,7 +8,7 @@ import { Section3 } from "@/src/components/section3/section3";
 
 export default function Home() {
   return (
-    <LazyMotion features={domAnimation}>
+    <LazyMotion features={domAnimation} strict>
       <BehindBg />
       <main>
         <Navbar />
