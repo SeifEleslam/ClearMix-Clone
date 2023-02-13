@@ -1,4 +1,5 @@
 import { AnimatePresence, m } from "framer-motion";
+import { type } from "os";
 import React from "react";
 
 export const MenuBody = ({ open }: { open: boolean }) => {
@@ -45,8 +46,8 @@ export const MenuBody = ({ open }: { open: boolean }) => {
 
           <m.div
             className="bg-bgprim absolute top-[-10rem] right-[-10rem] z-0 w-[20rem] h-[20rem] rounded-full"
-            initial={{ scale: 1, opacity: 0.5 }}
-            animate={{ scale: 8, opacity: 1 }}
+            initial={{ scale: 1 }}
+            animate={{ scale: 8 }}
             transition={{ duration: 0.5, type: "tween" }}
           ></m.div>
         </m.div>
@@ -67,7 +68,7 @@ const Item = ({ children, i }: { children: React.ReactNode; i: number }) => {
       animate={{
         opacity: 1,
         y: 0,
-        transition: { duration: 0.3, delay: 0.1 * (i + 1) },
+        transition: { duration: 0.3, delay: 0.1 * (i + 1), type: "tween" },
       }}
     >
       {children}

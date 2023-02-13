@@ -19,9 +19,6 @@ export const Section1 = () => {
     damping: 30,
     restDelta: 0.001,
   });
-  useEffect(() => {
-    console.log(y);
-  }, [y]);
   return (
     <div className="relative z-20 text-center text-txprim ">
       <div className="mb-20 z-20">

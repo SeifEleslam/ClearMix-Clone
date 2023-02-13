@@ -75,10 +75,9 @@ const VoiceWaves = () => {
 const Bar = ({ i }: { i: number }) => {
   return (
     <m.div
-      className={`absolute w-[2px] rounded-full h-full barbg`}
+      className={`absolute w-[2px] h-full barbg`}
       animate={{
         x: ["0rem", "14.5rem"],
-        scaleY: [Math.random() + 0.05, Math.random() + 0.05],
       }}
       transition={{
         duration: 5,
@@ -86,6 +85,7 @@ const Bar = ({ i }: { i: number }) => {
         repeat: Infinity,
         delay: i * 0.25,
       }}
+      style={{ scaleY: Math.random() + 0.05 }}
     ></m.div>
   );
 };

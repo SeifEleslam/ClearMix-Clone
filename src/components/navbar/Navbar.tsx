@@ -1,4 +1,4 @@
-import { m } from "framer-motion";
+import { m, useScroll } from "framer-motion";
 import React, { useEffect, useRef, useState } from "react";
 import { Logo } from "./Logo";
 import { Menu } from "./Menu";
@@ -7,31 +7,16 @@ import { MenuBody } from "./MenuBody";
 export const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [show, setShow] = useState("top");
-  const lastScrollY = useRef(0);
+  const { scrollY } = useScroll();
 
   useEffect(() => {
-    window.addEventListener("scroll", controlNavbar);
-
-    // cleanup function
-    return () => {
-      window.removeEventListener("scroll", controlNavbar);
-    };
+    scrollY.on("change", () => {
+      if (scrollY.get() === 0) setShow("top");
+      else if (scrollY.get() < scrollY.getPrevious()) setShow("show");
+      else setShow("hide");
+    });
+    return () => scrollY.clearListeners();
   }, []);
-
-  const controlNavbar = () => {
-    if (window.scrollY <= 30) {
-      setShow("top");
-      lastScrollY.current = window.scrollY;
-    } else if (window.scrollY - 30 > lastScrollY.current && show !== "hide") {
-      // if scroll down hide the navbar
-      lastScrollY.current = window.scrollY;
-      setShow("hide");
-    } else if (show !== "show" && window.scrollY + 30 < lastScrollY.current) {
-      // if scroll up show the navbar
-      lastScrollY.current = window.scrollY;
-      setShow("show");
-    }
-  };
 
   const navbar = [
     "w-full h-[5rem] relative z-20",
