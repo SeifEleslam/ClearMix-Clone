@@ -73,6 +73,7 @@ export const TrustedComp = ({
         src={src}
         alt={""}
         className=" max-h-[5rem] w-auto max-w-[100%] md:max-w-[10rem] mx-auto "
+        loading="lazy"
       />
     </m.div>
   );

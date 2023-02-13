@@ -54,9 +54,9 @@ export const Section3 = () => {
             variants={{}}
           />
         </div>
-      </div>
-      <div className="w-[20rem] rounded-full px-10 py-5 bg-white">
-        <VoiceWaves />
+        <div className="absolute origin-left w-[17rem] h-[5rem] rounded-full py-5 bg-bgprim shadow-gold left-[25%] bottom-[-1.5rem] scale-[.75] md:scale-[1.2] xl:scale-[1.7]">
+          <VoiceWaves />
+        </div>
       </div>
     </div>
   );
@@ -64,20 +64,20 @@ export const Section3 = () => {
 
 const VoiceWaves = () => {
   return (
-    <div className="relative w-[15rem] h-[3rem]">
+    <div className="relative overflow-hidden mx-auto w-[13rem] h-full">
       {[...Array(20)].map((val, i) => {
-        return <Bar key={i} i={i} />;
+        return <Bar key={i} i={i} scaleY={Math.random() + 0.05} />;
       })}
     </div>
   );
 };
 
-const Bar = ({ i }: { i: number }) => {
+const Bar = ({ i, scaleY }: { i: number; scaleY: number }) => {
   return (
     <m.div
-      className={`absolute w-[2px] h-full barbg`}
+      className={` absolute w-[2px] h-full barbg`}
       animate={{
-        x: ["0rem", "14.5rem"],
+        x: ["13rem", "-.5rem"],
       }}
       transition={{
         duration: 5,
@@ -85,7 +85,7 @@ const Bar = ({ i }: { i: number }) => {
         repeat: Infinity,
         delay: i * 0.25,
       }}
-      style={{ scaleY: Math.random() + 0.05 }}
+      style={{ scaleY }}
     ></m.div>
   );
 };

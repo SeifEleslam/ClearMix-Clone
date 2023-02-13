@@ -23,6 +23,11 @@ module.exports = {
         dtxprim: "",
         dbgprim: "",
       },
+      boxShadow: {
+        // "3xl": "0 11px 41px 0 rgba(0, 0, 0, 1)",
+        // xxl: "0 -1px 21px 0 rgba(0, 0, 0, 1)",
+        gold: "0 10px 21px 0 rgba(196, 2, 53, .5)",
+      },
     },
   },
   plugins: [],

@@ -58,8 +58,8 @@ html {
 }
 .barbg{
   background: linear-gradient(to bottom,
-    #e60f47,
-    #ff8605
+    #e60f47 40%,
+    #ff8605 60%
   );
 }
 
