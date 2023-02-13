@@ -55,14 +55,37 @@ export const Section3 = () => {
           />
         </div>
       </div>
+      <div className="w-[20rem] rounded-full px-10 py-5 bg-white">
+        <VoiceWaves />
+      </div>
     </div>
   );
 };
 
 const VoiceWaves = () => {
-  return <div className="flex space-x-2"></div>;
+  return (
+    <div className="relative w-[15rem] h-[3rem]">
+      {[...Array(20)].map((val, i) => {
+        return <Bar key={i} i={i} />;
+      })}
+    </div>
+  );
 };
 
-const Bars = () => {
-  return <div className={`w-[1px] `}></div>;
+const Bar = ({ i }: { i: number }) => {
+  return (
+    <m.div
+      className={`absolute w-[2px] rounded-full h-full barbg`}
+      animate={{
+        x: ["0rem", "14.5rem"],
+        scaleY: [Math.random() + 0.05, Math.random() + 0.05],
+      }}
+      transition={{
+        duration: 5,
+        ease: "linear",
+        repeat: Infinity,
+        delay: i * 0.25,
+      }}
+    ></m.div>
+  );
 };
