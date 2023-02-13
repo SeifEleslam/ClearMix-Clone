@@ -32,21 +32,21 @@ export const MenuBody = ({ open }: { open: boolean }) => {
                 })}
               </m.div>
               <m.div
-                className="flex h-fit p-4 space-x-10"
+                className="flex flex-col md:flex-row justify-center items-center h-fit p-4 md:space-x-10 md:space-y-0 space-y-5"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ duration: 0.3, delay: 0.4 }}
+                transition={{ delay: 0.4, type: "tween" }}
               >
-                <LoginButton widthClass="flex-1">LOGIN</LoginButton>
-                <SchButton widthClass="flex-1">SCHEDULE A CALL</SchButton>
+                <LoginButton widthClass="w-full p-6">LOGIN</LoginButton>
+                <SchButton widthClass="w-full">SCHEDULE A CALL</SchButton>
               </m.div>
             </div>
           </div>
 
           <m.div
             className="bg-bgprim absolute top-[-10rem] right-[-10rem] z-0 w-[20rem] h-[20rem] rounded-full"
-            initial={{ scale: 0.25 }}
-            animate={{ scale: 8 }}
+            initial={{ scale: 1, opacity: 0.5 }}
+            animate={{ scale: 8, opacity: 1 }}
             transition={{ duration: 0.5, type: "tween" }}
           ></m.div>
         </m.div>

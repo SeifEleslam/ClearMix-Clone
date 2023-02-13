@@ -45,7 +45,7 @@ export const Navbar = () => {
     visible: {
       y: 0,
       background: "rgba(8, 8, 16, 1)",
-      transition: { type: "tween", delay: 0.2, duration: 0.2 },
+      transition: { type: "tween" },
     },
     top: {
       y: 0,
@@ -64,7 +64,7 @@ export const Navbar = () => {
         className="z-50 w-full fixed overflow-hidden"
         variants={container}
         initial={"hidden"}
-        transition={{ default: { type: "tween", duration: 0.3 } }}
+        transition={{ default: { type: "tween" } }}
         animate={
           show === "show"
             ? "visible"
@@ -81,7 +81,7 @@ export const Navbar = () => {
             x: ["-10vw", "-100vw", "-50vw", "-100vw", "-10vw"],
           }}
           transition={{
-            duration: 6,
+            duration: 5,
             ease: "easeInOut",
             times: [0, 0.2, 0.5, 0.8, 1],
             repeat: Infinity,
