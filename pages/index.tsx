@@ -5,13 +5,16 @@ import { BehindBg } from "../src/components/BehindBg";
 import { Section1 } from "../src/components/section1/section1";
 import { Section2 } from "../src/components/section2/section2";
 import { Section3 } from "@/src/components/section3/section3";
+import { useMediaQuery } from "react-responsive";
 
 export default function Home() {
+  const isDesktop = useMediaQuery({ minWidth: 1024 });
+  const isMobile = useMediaQuery({ maxWidth: 600 });
   return (
     <LazyMotion features={domAnimation} strict>
-      <BehindBg />
+      {!isMobile && <BehindBg />}
       <main>
-        <Navbar />
+        <Navbar isDesktop={isDesktop} isMobile={isMobile} />
         <div className="mx-auto mt-[10rem] mb-[5rem]">
           <Section1 />
           <Section2 />

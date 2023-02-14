@@ -36,7 +36,7 @@ export const Section3 = () => {
         creating video assets. By not having brick-and-mortar studios, we can
         begin shooting videos through your webcam or phone tomorrow.
       </m.p>
-      <div className="flex h-fit md:px-5 justify-center space-x-2 md:space-x-6 mt-10">
+      <div className="relative flex h-fit md:px-5 justify-center space-x-2 md:space-x-6 mt-10">
         <MutedPlayer
           url="https://stream.mux.com/02tYe00tEaNq01aeFvEI55NphX01vSs02KtcUzD005njLv17Q.m3u8?aspect=0.5625"
           newClasses="relative rounded-2xl h-fit flex-1"
@@ -56,6 +56,28 @@ export const Section3 = () => {
         </div>
         <div className="absolute origin-left w-[17rem] h-[5rem] rounded-full py-5 bg-bgprim/50 backdrop-blur shadow-gold left-[25%] bottom-[-1.5rem] scale-[.75] md:scale-[1.2] xl:scale-[1.7]">
           <VoiceWaves />
+        </div>
+      </div>
+      <br />
+      <div className="mt-24 text-left text-txprim flex space-x-4 mx-auto max-w-[35rem] justify-center items-center">
+        <div className="relative">
+          <div className="rounded-full w-[5rem] h-[5rem] md:w-[8rem] md:h-[8rem] bg-prim">
+            <div className="text-5xl w-fit h-fit md:text-7xl absolute inset-0 mx-auto my-auto text-bgprim">
+              C
+            </div>
+          </div>
+        </div>
+        <div>
+          <p>
+            &quot;ClearMix helped by taking the reins and producing high-quality
+            video testimonials that we could incorporate into our media
+            mix.&quot;
+          </p>
+          <br />
+          <p className="font-bold">
+            Christian Balmaseda, Asst. Dir., Enrollment & Admissions at Cornell
+            Tech
+          </p>
         </div>
       </div>
     </div>

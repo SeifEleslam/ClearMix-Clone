@@ -15,7 +15,7 @@ export const Menu = ({ open, setOpen }: { open: boolean; setOpen: any }) => {
   }, []);
   return (
     <m.div>
-      <div
+      <button
         className="w-12 h-12 cursor-pointer lg:hidden"
         onClick={() => {
           lottie.setDirection(open ? -1 : 1);
@@ -23,7 +23,7 @@ export const Menu = ({ open, setOpen }: { open: boolean; setOpen: any }) => {
           setOpen(!open);
         }}
         id="menu-icon"
-      ></div>
+      ></button>
       <div className="hidden lg:block flex ">
         {["Solutions", "Pricing", "Blog"].map((item, i) => {
           return (

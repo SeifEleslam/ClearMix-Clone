@@ -2,11 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  max-width: 100vw;
-  overflow-x: hidden;
-  height:fit-content;
-}
+
 
 .font-outline {
   text-shadow: 0 1px 1px #aaa, 0 -1px 1px #aaa, 1px 0 1px #aaa, -1px 0 1px #aaa;

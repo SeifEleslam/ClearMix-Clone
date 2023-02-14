@@ -38,7 +38,7 @@ export const Section2 = () => {
       >
         TRUSTED BY TEAMS AT
       </m.h2>
-      <div className="flex bg-prim/[.1] shadow-2xl flex-wrap items-center md:px-5 pb-10 justify-center space-y-10 md:rounded-full rounded-2xl mt-10">
+      <div className="flex bg-prim/[.2] shadow-2xl flex-wrap items-center md:px-5 pb-10 justify-center space-y-10 md:rounded-full rounded-2xl mt-10">
         <div></div>
         {images.map((val, i) => {
           return <TrustedComp key={i} i={i} src={val} />;

@@ -3,13 +3,16 @@ import React, { useEffect, useRef, useState } from "react";
 import { Logo } from "./Logo";
 import { Menu } from "./Menu";
 import { MenuBody } from "./MenuBody";
-import { useMediaQuery } from "react-responsive";
 
-export const Navbar = () => {
+export const Navbar = ({
+  isDesktop,
+  isMobile,
+}: {
+  isDesktop: boolean;
+  isMobile: boolean;
+}) => {
   const [open, setOpen] = useState(false);
   const [show, setShow] = useState("top");
-  const isDesktop = useMediaQuery({ minWidth: 1024 });
-  const isMobile = useMediaQuery({ maxWidth: 600 });
   const { scrollY } = useScroll();
 
   useEffect(() => {
@@ -29,16 +32,15 @@ export const Navbar = () => {
     "flex justify-between items-center",
   ].join(" ");
   const container = {
-    hidden: { y: -100, background: "rgba(8, 8, 16, 1)", paddingTop: "0" },
+    hidden: { y: -100, background: "rgba(8, 8, 16, 1)", padding: "0rem" },
     visible: {
       y: 0,
-      paddingTop: "0",
-
+      padding: "0rem",
       background: "rgba(8, 8, 16, 1)",
     },
     top: {
       y: 0,
-      paddingTop: "1.5rem",
+      padding: "1rem",
       background: "rgba(8, 8, 16, 0)",
     },
     topm: {
