@@ -2,15 +2,15 @@ import { delay, m, useMotionValue, useTransform } from "framer-motion";
 import React, { useEffect } from "react";
 
 export const BehindBg = () => {
-  const mouseX = useMotionValue(200);
+  // const mouseX = useMotionValue(200);
   const mouseY = useMotionValue(200);
 
-  const rotateX = useTransform(mouseX, [0, 10000], [0, 2000]);
+  // const rotateX = useTransform(mouseX, [0, 10000], [0, 2000]);
   const rotateY = useTransform(mouseY, [0, 100000], [0, 20000]);
 
   function handleMouse(event: MouseEvent) {
-    mouseX.set(event.pageX);
-    mouseY.set(event.pageY);
+    // mouseX.set(event.pageX);
+    mouseY.set(event.pageX);
   }
   useEffect(() => {
     window.addEventListener("mousemove", handleMouse);
@@ -23,7 +23,7 @@ export const BehindBg = () => {
       <div className="fixed w-[100vw] h-[100vh] ">
         <m.div
           className={`w-[100%] absolute inset-0 h-[100%] opacity-50 duration-[10000ms] rounded-full bg-prim `}
-          style={{ rotateX, rotateY }}
+          style={{ rotateY, rotateX: 45 }}
         ></m.div>
       </div>
     </div>

@@ -27,7 +27,7 @@ export const Section3 = () => {
         Creating Produced Videos
       </m.h2>
       <m.p
-        className="text-txprim mt-6 text-xl  mb-10 max-w-[42rem] mx-auto xl:leading-[3rem]  leading-10 "
+        className="text-txprim mt-6 text-xl mb-24 max-w-[42rem] mx-auto xl:leading-[3rem]  leading-10 "
         initial={{ opacity: 0, y: 40 }}
         viewport={{ once: true }}
         whileInView={{ opacity: 1, y: 0, transition: { delay: 0.6 } }}
@@ -54,8 +54,10 @@ export const Section3 = () => {
             variants={{}}
           />
         </div>
-        <div className="absolute origin-left w-[17rem] h-[5rem] rounded-full py-5 bg-bgprim/50 backdrop-blur shadow-gold left-[25%] bottom-[-1.5rem] scale-[.75] md:scale-[1.2] xl:scale-[1.7]">
-          <VoiceWaves />
+        <div className="absolute w-[85%] -left-10 sm:left-0 pl-0 bottom-[-4rem] sm:bottom-[-2.2rem]">
+          <div className="mx-auto w-[17rem] h-[5rem] rounded-full py-5 bg-bgprim/50 backdrop-blur shadow-gold scale-[.75] md:scale-[1.2] xl:scale-[1.7]">
+            <VoiceWaves />
+          </div>
         </div>
       </div>
       <br />

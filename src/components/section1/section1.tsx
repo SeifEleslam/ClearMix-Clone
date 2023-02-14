@@ -36,7 +36,7 @@ export const Section1 = () => {
         <MutedPlayer
           newClasses={
             "rounded-full border-[2px]" +
-            " md:bottom-32 -left-6 xl:bottom-50 w-[18vw] max-w-[18rem]  mx-auto absolute hidden md:block border-prim"
+            " md:bottom-32 left-0 xl:left-12 xl:bottom-50 w-[18vw] max-w-[18rem]  mx-auto absolute hidden md:block border-prim"
           }
           url="https://stream.mux.com/nF0201aC029F021b3OSYuIm5j2WEHJEY2q02CzVWwHlTeKbw.m3u8?aspect=0.5625"
           variants={{
@@ -48,7 +48,7 @@ export const Section1 = () => {
         <MutedPlayer
           newClasses={
             "rounded-full border-[2px] " +
-            " md:bottom-1 -right-[7rem] xl:-bottom-20 w-[28vw] max-w-[28rem] mx-auto absolute hidden md:block border-sec "
+            " md:bottom-1 right-[-7rem] xl:right-[2rem] xl:-bottom-20 w-[28vw] max-w-[28rem] mx-auto absolute hidden md:block border-sec "
           }
           url="https://stream.mux.com/XF21pO1eUMV00HBXG00miS4e01vDxuwPwQEwKiPLdJR01ZE.m3u8?aspect=1"
           variants={{
