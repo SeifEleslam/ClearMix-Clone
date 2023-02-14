@@ -67,6 +67,16 @@ body {
   max-width: 100vw;
   background-color: #080810;
 }
-a, button{
-  outline: none;
+
+a,button{
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select:none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+a:focus, button:focus{
+  outline: none !important;
 }
