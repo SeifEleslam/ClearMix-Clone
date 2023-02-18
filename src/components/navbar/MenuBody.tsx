@@ -87,8 +87,8 @@ export const SchButton = ({
   return (
     <m.button
       className={`${widthClass} schshadow sub-bg p-6 text-xl rounded-full text-txdef`}
-      initial={{ backgroundPositionX: "10%" }}
-      whileHover={{ backgroundPositionX: "90%" }}
+      initial={{ backgroundPositionX: "10%", y: 0 }}
+      whileHover={{ backgroundPositionX: "90%", y: -10 }}
       transition={{ duration: 0.3 }}
     >
       {children}

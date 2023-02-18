@@ -1,6 +1,7 @@
 import { m } from "framer-motion";
 import dynamic from "next/dynamic";
 import { MutedPlayer } from "../section1/section1";
+import NoSSRWrapper from "../NoSSR";
 
 const ReactPlayer = dynamic(() => import("react-player/lazy"), { ssr: false });
 
@@ -89,9 +90,11 @@ export const Section3 = () => {
 const VoiceWaves = () => {
   return (
     <div className="relative overflow-hidden mx-auto w-[13rem] h-full">
-      {[...Array(20)].map((val, i) => {
-        return <Bar key={i} i={i} scaleY={Math.random() + 0.05} />;
-      })}
+      <NoSSRWrapper>
+        {[...Array(20)].map((val, i) => {
+          return <Bar key={i} i={i} scaleY={Math.random() + 0.05} />;
+        })}
+      </NoSSRWrapper>
     </div>
   );
 };

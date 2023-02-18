@@ -1,13 +1,14 @@
 import { m, useScroll, useSpring, useTransform } from "framer-motion";
 import dynamic from "next/dynamic";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { SchButton } from "../navbar/MenuBody";
 import { ChangeText } from "./ChangText";
-import { MainVid } from "./MainVid";
+import { MainVid, MainVidMob } from "./MainVid";
+import NoSSRWrapper from "../NoSSR";
 
 const ReactPlayer = dynamic(() => import("react-player/lazy"), { ssr: false });
 
-export const Section1 = () => {
+export const Section1 = ({ isMobile }: { isMobile: boolean }) => {
   const secRef = useRef(null);
   const { scrollYProgress, scrollY } = useScroll({
     target: secRef,
@@ -19,6 +20,7 @@ export const Section1 = () => {
     damping: 30,
     restDelta: 0.001,
   });
+
   return (
     <div className="relative z-20 text-center text-txprim ">
       <div className="mb-20 z-20">
@@ -66,15 +68,16 @@ export const Section1 = () => {
         >
           Created Remotely
         </m.h1>
-        <m.p
-          className="text-xl xl:text-2xl mb-10 max-w-[30rem] xl:max-w-[40rem] mx-auto xl:leading-[3rem]  leading-10 "
+        <m.div
           initial={{ opacity: 0, y: 40 }}
           viewport={{ once: true }}
           whileInView={{ opacity: 1, y: 0, transition: { delay: 0.6 } }}
         >
-          We are a virtual video production house, helping companies create
-          video content remotely with professional producers and editors
-        </m.p>
+          <p className="text-xl xl:text-2xl mb-10 max-w-[30rem] xl:max-w-[40rem] mx-auto xl:leading-[3rem]  leading-10 ">
+            We are a virtual video production house, helping companies create
+            video content remotely with professional producers and editors
+          </p>
+        </m.div>
         <m.div
           initial={{ opacity: 0, y: 40 }}
           viewport={{ once: true }}
@@ -89,7 +92,15 @@ export const Section1 = () => {
           </SchButton>
         </m.div>
       </div>
-      <MainVid />
+      <ReactPlayer
+        playing={true}
+        loop={true}
+        muted={true}
+        width="100%"
+        height="auto"
+        url="https://stream.mux.com/bx5uui2jjvo3rWFasVfiDNheeQ4mMATgKXOZWOZXMf4.m3u8?aspect=0.5625"
+        wrapper={!isMobile ? MainVid : MainVidMob}
+      />
     </div>
   );
 };
@@ -131,5 +142,27 @@ export const MutedPlayer = ({
         }}
       />
     </m.div>
+  );
+};
+
+const WrappedPlayer = ({
+  url,
+  wrapper,
+}: {
+  url: string;
+  wrapper: React.ComponentType<{
+    children: React.ReactNode;
+  }>;
+}) => {
+  return (
+    <ReactPlayer
+      wrapper={wrapper}
+      url={url}
+      playing={true}
+      loop={true}
+      muted={true}
+      width="100%"
+      height="auto"
+    />
   );
 };

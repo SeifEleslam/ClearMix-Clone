@@ -32,15 +32,13 @@ export const Navbar = ({
     "flex justify-between items-center",
   ].join(" ");
   const container = {
-    hidden: { y: -100, background: "rgba(8, 8, 16, 1)", padding: "0rem" },
+    hidden: { y: -100, background: "rgba(8, 8, 16, 1)" },
     visible: {
       y: 0,
-      padding: "0rem",
       background: "rgba(8, 8, 16, 1)",
     },
     top: {
       y: 0,
-      padding: "1rem",
       background: "rgba(8, 8, 16, 0)",
     },
     topm: {
@@ -51,7 +49,6 @@ export const Navbar = ({
   return (
     <div className="w-[100vw] z-50 top-0 fixed overflow-hidden">
       <m.div
-        className="z-50 w-full fixed overflow-hidden"
         variants={container}
         initial={"hidden"}
         animate={
@@ -63,6 +60,7 @@ export const Navbar = ({
             ? "top"
             : "topm"
         }
+        transition={{ type: "tween" }}
       >
         <m.div
           className="absolute w-[200vw] -bottom-[2px] z-10 h-[4px] nav-background"
