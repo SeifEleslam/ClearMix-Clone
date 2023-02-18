@@ -50,7 +50,7 @@ export const Navbar = ({
     },
   };
   return (
-    <div className="w-[100vw] flex flex-col z-50 top-0 fixed overflow-clip">
+    <div className="w-[100vw] flex flex-col z-50 top-0 fixed overflow-x-clip">
       <m.div
         className="relative z-50"
         variants={container}
@@ -64,12 +64,8 @@ export const Navbar = ({
             ? "top"
             : "topm"
         }
-        transition={{ type: "tween" }}
+        transition={{ type: "tween", duration: 0.1 }}
       >
-        <div className={navbar}>
-          <Logo />
-          <Menu setOpen={setOpen} open={open} />
-        </div>
         <m.div
           className="absolute w-[200vw] -bottom-[2px] z-10 h-[2px] nav-background"
           whileInView={{
@@ -83,6 +79,10 @@ export const Navbar = ({
             repeatDelay: 0.1,
           }}
         ></m.div>
+        <div className={navbar}>
+          <Logo />
+          <Menu setOpen={setOpen} open={open} />
+        </div>
       </m.div>
       <MenuBody open={open} />
     </div>
