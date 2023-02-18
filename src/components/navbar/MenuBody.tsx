@@ -8,8 +8,8 @@ export const MenuBody = ({ open }: { open: boolean }) => {
       {open && (
         <m.div
           className="fixed w-full h-full lg:hidden"
-          initial={{ opacity: 0, scale: 1 }}
-          animate={{ opacity: 1, scale: 1 }}
+          initial={{ scale: 1 }}
+          animate={{ scale: 1 }}
           exit={{ opacity: 0, scale: 1.2, transition: { duration: 0.3 } }}
         >
           <div className="w-full h-full p-2 overflow-scroll">
@@ -45,9 +45,9 @@ export const MenuBody = ({ open }: { open: boolean }) => {
           </div>
 
           <m.div
-            className="bg-bgprim absolute top-[-10rem] right-[-10rem] z-0 w-[20rem] h-[20rem] rounded-full"
-            initial={{ scale: 1 }}
-            animate={{ scale: 9 }}
+            className="bg-bgprim absolute left-0 right-0 mx-auto top-0 bottom-0 my-auto z-0 w-[50%] h-[50%] rounded-full"
+            initial={{ scale: 0.25 }}
+            animate={{ scale: 4 }}
             transition={{ duration: 0.4 }}
           ></m.div>
         </m.div>
@@ -68,7 +68,7 @@ const Item = ({ children, i }: { children: React.ReactNode; i: number }) => {
       animate={{
         opacity: 1,
         y: 0,
-        transition: { duration: 0.3, delay: 0.1 * (i + 1), type: "tween" },
+        transition: { duration: 0.3, delay: 0.2 * (i + 1), type: "tween" },
       }}
       exit={{ opacity: 0 }}
     >
