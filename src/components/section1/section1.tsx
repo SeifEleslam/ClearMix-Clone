@@ -1,10 +1,11 @@
 import { m, useScroll, useSpring, useTransform } from "framer-motion";
 import dynamic from "next/dynamic";
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useRef } from "react";
 import { SchButton } from "../navbar/MenuBody";
+import NoSSR from "../NoSSR";
 import { ChangeText } from "./ChangText";
 import { MainVid, MainVidMob } from "./MainVid";
-import NoSSRWrapper from "../NoSSR";
+import MutedPlayer from "./MutedPlayer";
 
 const ReactPlayer = dynamic(() => import("react-player/lazy"), { ssr: false });
 
@@ -59,7 +60,6 @@ export const Section1 = ({ isMobile }: { isMobile: boolean }) => {
           }}
           style={{ y: ya }}
         />
-
         <m.h1
           className="md:text-5xl xl:text-8xl lg:text-7xl text-4xl mb-4"
           initial={{ opacity: 0, y: 40 }}
@@ -92,64 +92,30 @@ export const Section1 = ({ isMobile }: { isMobile: boolean }) => {
           </SchButton>
         </m.div>
       </div>
-      <ReactPlayer
-        playing={true}
-        loop={true}
-        muted={true}
-        width="100%"
-        height="auto"
-        url="https://stream.mux.com/bx5uui2jjvo3rWFasVfiDNheeQ4mMATgKXOZWOZXMf4.m3u8?aspect=0.5625"
-        wrapper={MainVid}
-      />
-      <ReactPlayer
-        playing={true}
-        loop={true}
-        muted={true}
-        width="100%"
-        height="auto"
-        url="https://stream.mux.com/bx5uui2jjvo3rWFasVfiDNheeQ4mMATgKXOZWOZXMf4.m3u8?aspect=0.5625"
-        wrapper={MainVidMob}
-      />
+      <NoSSR>
+        <ReactPlayer
+          playing={true}
+          loop={true}
+          muted={true}
+          width="100%"
+          height="auto"
+          url="https://stream.mux.com/bx5uui2jjvo3rWFasVfiDNheeQ4mMATgKXOZWOZXMf4.m3u8?aspect=0.5625"
+          wrapper={MainVid}
+        />
+
+        <ReactPlayer
+          playing={true}
+          loop={true}
+          muted={true}
+          width="100%"
+          height="auto"
+          url="https://stream.mux.com/bx5uui2jjvo3rWFasVfiDNheeQ4mMATgKXOZWOZXMf4.m3u8?aspect=0.5625"
+          wrapper={MainVidMob}
+        />
+      </NoSSR>
     </div>
   );
 };
 //https://stream.mux.com/bx5uui2jjvo3rWFasVfiDNheeQ4mMATgKXOZWOZXMf4.m3u8?aspect=0.5625
 //https://stream.mux.com/nF0201aC029F021b3OSYuIm5j2WEHJEY2q02CzVWwHlTeKbw.m3u8?aspect=0.5625
 //https://stream.mux.com/XF21pO1eUMV00HBXG00miS4e01vDxuwPwQEwKiPLdJR01ZE.m3u8?aspect=1
-
-export const MutedPlayer = ({
-  url,
-  newClasses,
-  variants,
-  style,
-}: {
-  url: string;
-  newClasses: string;
-  variants: any;
-  style?: any;
-}) => {
-  const [view, setView] = useState(false);
-  return (
-    <m.div
-      className={`overflow-hidden  ${newClasses}`}
-      initial="hide"
-      animate={view ? "show" : "hide"}
-      transition={{ duration: 0.5 }}
-      variants={variants}
-      style={style}
-    >
-      <div className="absolute w-full h-full top-0 left-0 bg-bgprim/25"></div>
-      <ReactPlayer
-        url={url}
-        playing={true}
-        loop={true}
-        muted={true}
-        width="100%"
-        height="auto"
-        onReady={() => {
-          setView(true);
-        }}
-      />
-    </m.div>
-  );
-};

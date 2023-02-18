@@ -46,8 +46,8 @@ export const MenuBody = ({ open }: { open: boolean }) => {
 
           <m.div
             className="bg-bgprim absolute left-0 right-0 mx-auto top-0 bottom-0 my-auto z-0 w-24 h-24 rounded-full"
-            initial={{ scale: 2 }}
-            animate={{ scale: 13 }}
+            initial={{ scale: 4 }}
+            animate={{ scale: 15 }}
             transition={{ duration: 0.4, type: "tween" }}
           ></m.div>
         </m.div>
@@ -112,7 +112,7 @@ export const LoginButton = ({
   };
   return (
     <m.button
-      className={`${widthClass} overflow-hidden text-prim bg-bgsec relative rounded-full`}
+      className={`${widthClass} overflow-clip text-prim bg-bgsec relative rounded-full`}
       whileHover="hover"
       variants={buttonVariant}
     >

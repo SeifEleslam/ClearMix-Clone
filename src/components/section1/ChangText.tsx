@@ -14,8 +14,9 @@ export const ChangeText = () => {
       opacity: 1,
       y: 0,
       transition: {
+        duration: 0.2,
         ease: "easeOut",
-        delay: 0.4,
+        delay: 0.1,
       },
     },
     hide: {
@@ -26,6 +27,7 @@ export const ChangeText = () => {
       y: -20,
       opacity: 0,
       transition: {
+        duration: 0.2,
         ease: "easeOut",
       },
     },

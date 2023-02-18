@@ -10,7 +10,7 @@
 }
 
 .nav-background {
-  background: linear-gradient(0.35turn, #e60f47, #c40235, #ff5800, #ff8605 45%, #080810 50%, #ff5800 55%, #e60f47);
+  background: linear-gradient(0.35turn, #c40235 45%, #080810 50%, #ff5800 55%);
 }
 
 .sub-bg {

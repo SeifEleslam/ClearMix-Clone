@@ -50,7 +50,7 @@ export const Navbar = ({
     },
   };
   return (
-    <div className="w-[100vw] flex flex-col z-50 top-0 fixed overflow-hidden">
+    <div className="w-[100vw] flex flex-col z-50 top-0 fixed overflow-clip">
       <m.div
         variants={container}
         initial={"hidden"}
@@ -65,7 +65,7 @@ export const Navbar = ({
         }
         transition={{ type: "tween" }}
       >
-        <div className={navbar}>
+        <div className={""}>
           <Logo />
           <Menu setOpen={setOpen} open={open} />
         </div>

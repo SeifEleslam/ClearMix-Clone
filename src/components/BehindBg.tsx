@@ -18,7 +18,7 @@ export const BehindBg = () => {
   }, []);
 
   return (
-    <div className="z-0 overflow-hidden fixed w-full h-full top-0 left-0 blur-2xl">
+    <div className="z-0 overflow-clip fixed w-full h-full top-0 left-0 blur-2xl">
       <div className="absolute w-full h-full top-0 left-0 bg-bgprim/75 z-10 "></div>
       <div className="fixed w-[100vw] h-[100vh] ">
         <m.div
