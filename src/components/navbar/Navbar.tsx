@@ -32,19 +32,19 @@ export const Navbar = ({
     "flex justify-between items-center",
   ].join(" ");
   const container = {
-    hidden: { y: -100, background: "rgba(8, 8, 16, 1)", padding: 0 },
+    hidden: { y: "-100%", background: "rgba(8, 8, 16, 1)", padding: 0 },
     visible: {
-      y: 0,
+      y: "0%",
       background: "rgba(8, 8, 16, 1)",
       padding: 0,
     },
     top: {
-      y: 0,
+      y: "0%",
       background: "rgba(8, 8, 16, 0)",
       padding: 10,
     },
     topm: {
-      y: 0,
+      y: "0%",
       background: "rgba(8, 8, 16, 0)",
       padding: 0,
     },
@@ -65,7 +65,7 @@ export const Navbar = ({
         }
         transition={{ type: "tween" }}
       >
-        <div className={""}>
+        <div className={navbar}>
           <Logo />
           <Menu setOpen={setOpen} open={open} />
         </div>

@@ -18,25 +18,27 @@ export default function MutedPlayer({
   const [view, setView] = useState(false);
   return (
     <m.div
-      className={`overflow-clip  ${newClasses}`}
+      className={`overflow-clip`}
       initial="hide"
       animate={view ? "show" : "hide"}
       transition={{ duration: 0.5 }}
       variants={variants}
       style={style}
     >
-      <div className="absolute w-full h-full top-0 left-0 bg-bgprim/25"></div>
-      <ReactPlayer
-        url={url}
-        playing={true}
-        loop={true}
-        muted={true}
-        width="100%"
-        height="auto"
-        onReady={() => {
-          setView(true);
-        }}
-      />
+      <div className={newClasses}>
+        <div className="absolute w-full h-full top-0 left-0 bg-bgprim/25"></div>
+        <ReactPlayer
+          url={url}
+          playing={true}
+          loop={true}
+          muted={true}
+          width="100%"
+          height="auto"
+          onReady={() => {
+            setView(true);
+          }}
+        />
+      </div>
     </m.div>
   );
 }
