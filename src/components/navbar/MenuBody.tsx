@@ -8,8 +8,8 @@ export const MenuBody = ({ open }: { open: boolean }) => {
       {open && (
         <m.div
           className="fixed w-full h-full lg:hidden"
-          initial={{ scale: 1 }}
-          animate={{ scale: 1 }}
+          initial={{ scale: 1, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
           exit={{ opacity: 0, scale: 1.2, transition: { duration: 0.3 } }}
         >
           <div className="w-full h-full p-2 overflow-scroll">

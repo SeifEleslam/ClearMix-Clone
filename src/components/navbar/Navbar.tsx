@@ -25,25 +25,28 @@ export const Navbar = ({
   }, []);
 
   const navbar = [
-    "w-full h-[5rem] relative z-20 origin-top",
+    "w-full h-0 relative z-20 ",
     "md:px-[4rem] px-8 2xl:px-[16rem]",
-    "py-[2.5rem]",
+    "py-[2rem]",
     "text-white",
     "flex justify-between items-center",
   ].join(" ");
   const container = {
-    hidden: { y: -100, background: "rgba(8, 8, 16, 1)" },
+    hidden: { y: -100, background: "rgba(8, 8, 16, 1)", padding: 0 },
     visible: {
       y: 0,
       background: "rgba(8, 8, 16, 1)",
+      padding: 0,
     },
     top: {
       y: 0,
       background: "rgba(8, 8, 16, 0)",
+      padding: 10,
     },
     topm: {
       y: 0,
       background: "rgba(8, 8, 16, 0)",
+      padding: 0,
     },
   };
   return (
