@@ -45,10 +45,10 @@ export const MenuBody = ({ open }: { open: boolean }) => {
           </div>
 
           <m.div
-            className="bg-bgprim absolute left-0 right-0 mx-auto top-0 bottom-0 my-auto z-0 w-[50%] h-[50%] rounded-full"
-            initial={{ scale: 0.25 }}
-            animate={{ scale: 4 }}
-            transition={{ duration: 0.4 }}
+            className="bg-bgprim absolute left-0 right-0 mx-auto top-0 bottom-0 my-auto z-0 w-24 h-24 rounded-full"
+            initial={{ scale: 2 }}
+            animate={{ scale: 13 }}
+            transition={{ duration: 0.4, type: "tween" }}
           ></m.div>
         </m.div>
       )}

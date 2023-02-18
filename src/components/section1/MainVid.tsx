@@ -54,7 +54,7 @@ export const MainVid = ({ children }: { children: React.ReactNode }) => {
 
 export const MainVidMob = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="mt-20 mx-6">
+    <div className="mt-20 md:hidden block mx-6">
       <m.div className="sticky">
         <m.div className="left-0 right-0 w-[50rem] max-w-[100%] overflow-hidden mx-auto w-[50%]">
           <m.div className="overflow-hidden rounded-2xl  w-full border-black border-[2px] relative">

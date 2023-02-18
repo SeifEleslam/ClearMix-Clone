@@ -99,7 +99,16 @@ export const Section1 = ({ isMobile }: { isMobile: boolean }) => {
         width="100%"
         height="auto"
         url="https://stream.mux.com/bx5uui2jjvo3rWFasVfiDNheeQ4mMATgKXOZWOZXMf4.m3u8?aspect=0.5625"
-        wrapper={!isMobile ? MainVid : MainVidMob}
+        wrapper={MainVid}
+      />
+      <ReactPlayer
+        playing={true}
+        loop={true}
+        muted={true}
+        width="100%"
+        height="auto"
+        url="https://stream.mux.com/bx5uui2jjvo3rWFasVfiDNheeQ4mMATgKXOZWOZXMf4.m3u8?aspect=0.5625"
+        wrapper={MainVidMob}
       />
     </div>
   );
@@ -142,27 +151,5 @@ export const MutedPlayer = ({
         }}
       />
     </m.div>
-  );
-};
-
-const WrappedPlayer = ({
-  url,
-  wrapper,
-}: {
-  url: string;
-  wrapper: React.ComponentType<{
-    children: React.ReactNode;
-  }>;
-}) => {
-  return (
-    <ReactPlayer
-      wrapper={wrapper}
-      url={url}
-      playing={true}
-      loop={true}
-      muted={true}
-      width="100%"
-      height="auto"
-    />
   );
 };

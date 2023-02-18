@@ -65,20 +65,20 @@ export const Navbar = ({
         <div className={navbar}>
           <Logo />
           <Menu setOpen={setOpen} open={open} />
-          {/* <m.div
-            className="absolute w-[200vw] -bottom-[2px] z-10 h-[4px] nav-background"
-            whileInView={{
-              x: ["-10vw", "-100vw", "-50vw", "-100vw", "-10vw"],
-            }}
-            transition={{
-              duration: 5,
-              ease: "easeInOut",
-              times: [0, 0.2, 0.5, 0.8, 1],
-              repeat: Infinity,
-              repeatDelay: 0.1,
-            }}
-          ></m.div> */}
         </div>
+        <m.div
+          className="absolute w-[200vw] -bottom-[2px] z-10 h-[4px] nav-background"
+          whileInView={{
+            x: ["-10vw", "-100vw", "-50vw", "-100vw", "-10vw"],
+          }}
+          transition={{
+            duration: 5,
+            ease: "easeInOut",
+            times: [0, 0.2, 0.5, 0.8, 1],
+            repeat: Infinity,
+            repeatDelay: 0.1,
+          }}
+        ></m.div>
       </m.div>
       <MenuBody open={open} />
     </div>
