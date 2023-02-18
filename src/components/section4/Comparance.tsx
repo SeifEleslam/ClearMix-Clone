@@ -11,7 +11,6 @@ export const Comparance = () => {
         <MutedPlayer
           url="https://stream.mux.com/T3DIas3z00UdwJmADar00eKya2BLxRqeQ14z4Fpi70242E.m3u8"
           newClasses={""}
-          variants={{}}
           style={{ width }}
         />
       </div>
@@ -19,7 +18,6 @@ export const Comparance = () => {
         <MutedPlayer
           url="https://stream.mux.com/Q9k700YSBu014nlXJwZQIHmk9NWlswG3qGf4uGw5C4Cr00.m3u8"
           newClasses={""}
-          variants={{}}
         />
       </div>
     </div>

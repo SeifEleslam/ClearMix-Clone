@@ -52,6 +52,7 @@ export const Navbar = ({
   return (
     <div className="w-[100vw] flex flex-col z-50 top-0 fixed overflow-clip">
       <m.div
+        className="relative z-50"
         variants={container}
         initial={"hidden"}
         animate={
@@ -70,7 +71,7 @@ export const Navbar = ({
           <Menu setOpen={setOpen} open={open} />
         </div>
         <m.div
-          className="absolute w-[200vw] -bottom-[2px] z-10 h-[4px] nav-background"
+          className="absolute w-[200vw] -bottom-[2px] z-10 h-[2px] nav-background"
           whileInView={{
             x: ["-10vw", "-100vw", "-50vw", "-100vw", "-10vw"],
           }}

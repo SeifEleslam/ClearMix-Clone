@@ -36,30 +36,41 @@ export const Section1 = ({ isMobile }: { isMobile: boolean }) => {
         <ChangeText />
       </div>
       <div ref={secRef} className="relative overflow-x-clip w-full">
-        <MutedPlayer
-          newClasses={
-            "rounded-full border-[2px]" +
-            " md:bottom-32 left-0 xl:left-12 xl:bottom-50 w-[18vw] max-w-[18rem]  mx-auto absolute hidden md:block border-prim"
-          }
-          url="https://stream.mux.com/nF0201aC029F021b3OSYuIm5j2WEHJEY2q02CzVWwHlTeKbw.m3u8?aspect=0.5625"
-          variants={{
-            hide: { x: -100, opacity: 0 },
-            show: { x: 0, opacity: 1 },
-          }}
-          style={{ y: ya }}
-        />
-        <MutedPlayer
-          newClasses={
-            "rounded-full border-[2px] " +
-            " md:bottom-1 right-[-7rem] xl:right-[2rem] xl:-bottom-20 w-[28vw] max-w-[28rem] mx-auto absolute hidden md:block border-sec "
-          }
-          url="https://stream.mux.com/XF21pO1eUMV00HBXG00miS4e01vDxuwPwQEwKiPLdJR01ZE.m3u8?aspect=1"
-          variants={{
-            hide: { x: 100, opacity: 0 },
-            show: { x: 0, opacity: 1 },
-          }}
-          style={{ y: ya }}
-        />
+        <div className=" md:bottom-32 left-0 xl:left-12 xl:bottom-50 w-[18vw] max-w-[18rem]  mx-auto absolute hidden md:block">
+          <m.div
+            initial="hide"
+            animate={"show"}
+            transition={{ duration: 0.5 }}
+            variants={{
+              hide: { x: -100, opacity: 0 },
+              show: { x: 0, opacity: 1 },
+            }}
+            style={{ y: ya }}
+          >
+            <MutedPlayer
+              newClasses={"rounded-full border-[2px] border-prim"}
+              url="https://stream.mux.com/nF0201aC029F021b3OSYuIm5j2WEHJEY2q02CzVWwHlTeKbw.m3u8?aspect=0.5625"
+            />
+          </m.div>
+        </div>
+        <div className=" md:bottom-1 right-[-7rem] xl:right-[2rem] xl:-bottom-20 w-[28vw] max-w-[28rem] mx-auto absolute hidden md:block border-sec ">
+          <m.div
+            initial="hide"
+            animate={"show"}
+            transition={{ duration: 0.5 }}
+            variants={{
+              hide: { x: 100, opacity: 0 },
+              show: { x: 0, opacity: 1 },
+            }}
+            style={{ y: ya }}
+          >
+            <MutedPlayer
+              newClasses={"rounded-full border-[2px] border-sec"}
+              url="https://stream.mux.com/XF21pO1eUMV00HBXG00miS4e01vDxuwPwQEwKiPLdJR01ZE.m3u8?aspect=1"
+            />
+          </m.div>
+        </div>
+
         <m.h1
           className="md:text-5xl xl:text-8xl lg:text-7xl text-4xl mb-4"
           initial={{ opacity: 0, y: 40 }}
