@@ -65,7 +65,7 @@ export const Navbar = ({
         <div className={navbar}>
           <Logo />
           <Menu setOpen={setOpen} open={open} />
-          <m.div
+          {/* <m.div
             className="absolute w-[200vw] -bottom-[2px] z-10 h-[4px] nav-background"
             whileInView={{
               x: ["-10vw", "-100vw", "-50vw", "-100vw", "-10vw"],
@@ -77,7 +77,7 @@ export const Navbar = ({
               repeat: Infinity,
               repeatDelay: 0.1,
             }}
-          ></m.div>
+          ></m.div> */}
         </div>
       </m.div>
       <MenuBody open={open} />
