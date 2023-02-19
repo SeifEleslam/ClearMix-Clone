@@ -51,7 +51,7 @@ export const Navbar = ({
   };
   return (
     <div className="w-[100vw] flex flex-col z-50 top-0 fixed overflow-x-clip">
-      <motion.div
+      <m.div
         className="relative z-50"
         variants={container}
         initial={"hidden"}
@@ -83,7 +83,7 @@ export const Navbar = ({
           <Logo />
           <Menu setOpen={setOpen} open={open} />
         </div>
-      </motion.div>
+      </m.div>
       <MenuBody open={open} />
     </div>
   );
