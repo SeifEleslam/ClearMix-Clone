@@ -18,7 +18,9 @@ export const Comparance = () => {
         ) < 0.2
       )
         return;
-      ref1.current.seekTo(ref2.current.getCurrentTime() ?? 0, "seconds");
+      let time = ref2.current.getCurrentTime() ?? 0;
+      ref1.current.seekTo(time, "seconds");
+      ref2.current.seekTo(time, "seconds");
     }
   };
 
