@@ -1,8 +1,7 @@
 import { useInView } from "framer-motion";
 import dynamic from "next/dynamic";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import useMeasure from "react-use-measure";
-
 const ReactPlayer = dynamic(() => import("react-player/lazy"), { ssr: false });
 
 export const Comparance = () => {
@@ -14,13 +13,21 @@ export const Comparance = () => {
   });
   const render = useInView(ref, { once: true });
   const play = useInView(ref);
+
+  useEffect(() => {
+    console.log(view);
+  }, [view]);
+
   return (
     <div
       ref={widthRef}
-      className="w-full relative h-fit overflow-clip rounded-2xl"
+      className="m-12 relative h-fit overflow-clip rounded-2xl"
     >
-      <div className="absolute h-full w-[50%] overflow-x-clip">
-        <div className="absolute w-full h-full top-0 left-0 bg-bgprim/25"></div>
+      <div ref={ref} className="absolute h-full w-[50%] overflow-x-clip">
+        <div
+          style={{ width }}
+          className="absolute h-full top-0 left-0 bg-bgprim/25"
+        ></div>
         {render && (
           <ReactPlayer
             url="https://stream.mux.com/T3DIas3z00UdwJmADar00eKya2BLxRqeQ14z4Fpi70242E.m3u8"

@@ -18,9 +18,6 @@ export default function MutedPlayer({
   const render = useInView(ref, { once: true });
   const play = useInView(ref);
 
-  useEffect(() => {
-    console.log(render);
-  }, [render]);
   return (
     <div ref={ref} style={style} className={newClasses + " overflow-clip"}>
       <div className="absolute w-full h-full top-0 left-0 bg-bgprim/25"></div>
