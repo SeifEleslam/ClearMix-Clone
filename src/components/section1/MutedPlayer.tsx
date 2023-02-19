@@ -22,7 +22,11 @@ export default function MutedPlayer({
 
   return (
     <div ref={ref} style={style} className={newClasses + " overflow-clip"}>
-      <div ref={widthRef} className="w-full" style={{ height: width / 2 }}>
+      <div
+        ref={widthRef}
+        className="w-full"
+        style={!render ? { height: width / 2 } : {}}
+      >
         <div className="absolute w-full h-full top-0 left-0 bg-bgprim/25"></div>
         {render && (
           <ReactPlayer
