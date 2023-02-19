@@ -1,13 +1,9 @@
 import { m, useScroll, useSpring, useTransform } from "framer-motion";
-import dynamic from "next/dynamic";
 import React, { useRef } from "react";
 import { SchButton } from "../navbar/MenuBody";
-import NoSSR from "../NoSSR";
 import { ChangeText } from "./ChangText";
 import { MainVid, MainVidMob } from "./MainVid";
 import MutedPlayer from "./MutedPlayer";
-
-const ReactPlayer = dynamic(() => import("react-player/lazy"), { ssr: false });
 
 export const Section1 = ({ isMobile }: { isMobile: boolean }) => {
   const secRef = useRef(null);
@@ -39,7 +35,8 @@ export const Section1 = ({ isMobile }: { isMobile: boolean }) => {
         <div className=" md:bottom-32 left-0 xl:left-12 xl:bottom-50 w-[18vw] max-w-[18rem]  mx-auto absolute hidden md:block">
           <m.div
             initial="hide"
-            animate={"show"}
+            whileInView={"show"}
+            viewport={{ once: true }}
             transition={{ duration: 0.5 }}
             variants={{
               hide: { x: -100, opacity: 0 },
@@ -58,7 +55,8 @@ export const Section1 = ({ isMobile }: { isMobile: boolean }) => {
         <div className=" md:bottom-1 right-[-7rem] xl:right-[2rem] xl:-bottom-20 w-[28vw] max-w-[28rem] mx-auto absolute hidden md:block border-sec ">
           <m.div
             initial="hide"
-            animate={"show"}
+            whileInView={"show"}
+            viewport={{ once: true }}
             transition={{ duration: 0.5 }}
             variants={{
               hide: { x: 100, opacity: 0 },
