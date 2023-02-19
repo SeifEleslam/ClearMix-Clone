@@ -1,6 +1,7 @@
 import { m, useScroll, useSpring, useTransform } from "framer-motion";
 import React, { useRef } from "react";
 import { SchButton } from "../navbar/MenuBody";
+import { Comparance } from "../section4/Comparance";
 import { ChangeText } from "./ChangText";
 import { MainVid, MainVidMob } from "./MainVid";
 import MutedPlayer from "./MutedPlayer";
@@ -20,6 +21,7 @@ export const Section1 = ({ isMobile }: { isMobile: boolean }) => {
 
   return (
     <div className="relative z-20 text-center text-txprim ">
+      <Comparance />
       <div className="mb-20 z-20">
         <m.h1
           className="md:text-5xl xl:text-8xl lg:text-7xl text-4xl mb-4"

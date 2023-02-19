@@ -1,8 +1,6 @@
-import { useInView } from "framer-motion";
-import dynamic from "next/dynamic";
-import { useEffect, useRef, useState } from "react";
+import { m, useInView } from "framer-motion";
+import { useRef } from "react";
 import useMeasure from "react-use-measure";
-import NoSSR from "../NoSSR";
 import ReactPlayer from "react-player/lazy";
 
 export const Comparance = () => {
@@ -12,17 +10,18 @@ export const Comparance = () => {
   const ref2 = useRef<any>(null);
 
   const playSync = () => {
-    console.log("play fired");
     if (ref1.current && ref2.current) {
-      ref1.current.seekTo(0, "seconds");
-      ref2.current.seekTo(0, "seconds");
+      if (
+        Math.abs(
+          (ref2.current.getCurrentTime() ?? 0) -
+            (ref1.current.getCurrentTime() ?? 0)
+        ) < 0.2
+      )
+        return;
+      ref1.current.seekTo(ref2.current.getCurrentTime() ?? 0, "seconds");
     }
   };
 
-  // const [view, setView] = useState<{ first: boolean; secound: boolean }>({
-  //   first: false,
-  //   secound: false,
-  // });
   const render = useInView(ref, { once: true });
   const play = useInView(ref);
 
@@ -31,24 +30,24 @@ export const Comparance = () => {
       ref={widthRef}
       className="md:m-12 relative h-fit overflow-clip rounded-2xl"
     >
-      <div ref={ref} className="absolute h-full w-[50%] overflow-x-clip">
-        <div
-          style={{ width }}
-          className="absolute h-full top-0 left-0 bg-bgprim/25"
-        ></div>
-        {render && (
-          <ReactPlayer
-            ref={ref1}
-            url="https://stream.mux.com/T3DIas3z00UdwJmADar00eKya2BLxRqeQ14z4Fpi70242E.m3u8"
-            playing={play}
-            loop={true}
-            muted={true}
-            width="100%"
-            height="auto"
-            onPlay={playSync}
-          />
-        )}
-      </div>
+      <m.div drag="x" className="left-24 top-0 absolute h-full w-[5px]"></m.div>
+      <m.div ref={ref} className="absolute h-full w-[50%] overflow-clip">
+        <div className="absolute h-full top-0 left-0 bg-bgprim/25"></div>
+        <div style={{ width }}>
+          {render && (
+            <ReactPlayer
+              ref={ref1}
+              url="https://stream.mux.com/T3DIas3z00UdwJmADar00eKya2BLxRqeQ14z4Fpi70242E.m3u8"
+              playing={play}
+              loop={true}
+              muted={true}
+              width="100%"
+              height="auto"
+              onProgress={playSync}
+            />
+          )}
+        </div>
+      </m.div>
       <div className="w-full">
         <div className="absolute w-full h-full top-0 left-0 bg-bgprim/25"></div>
         {render && (
@@ -60,7 +59,6 @@ export const Comparance = () => {
             muted={true}
             width="100%"
             height="auto"
-            onPlay={playSync}
           />
         )}
       </div>

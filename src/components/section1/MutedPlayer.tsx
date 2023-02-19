@@ -1,6 +1,7 @@
 import { useInView } from "framer-motion";
 import dynamic from "next/dynamic";
 import { useRef, useState } from "react";
+import useMeasure from "react-use-measure";
 
 const ReactPlayer = dynamic(() => import("react-player/lazy"), { ssr: false });
 
@@ -17,23 +18,26 @@ export default function MutedPlayer({
   const [view, setView] = useState(false);
   const render = useInView(ref, { once: true });
   const play = useInView(ref);
+  const [widthRef, { width }] = useMeasure();
 
   return (
     <div ref={ref} style={style} className={newClasses + " overflow-clip"}>
-      <div className="absolute w-full h-full top-0 left-0 bg-bgprim/25"></div>
-      {render && (
-        <ReactPlayer
-          url={url}
-          playing={play}
-          loop={true}
-          muted={true}
-          width="100%"
-          height="auto"
-          onReady={() => {
-            setView(true);
-          }}
-        />
-      )}
+      <div ref={widthRef} className="w-full" style={{ height: width / 2 }}>
+        <div className="absolute w-full h-full top-0 left-0 bg-bgprim/25"></div>
+        {render && (
+          <ReactPlayer
+            url={url}
+            playing={play}
+            loop={true}
+            muted={true}
+            width="100%"
+            height="auto"
+            onReady={() => {
+              setView(true);
+            }}
+          />
+        )}
+      </div>
     </div>
   );
 }
