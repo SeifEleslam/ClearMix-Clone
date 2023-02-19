@@ -1,4 +1,4 @@
-import { m, useScroll } from "framer-motion";
+import { m, motion, useScroll } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import { Logo } from "./Logo";
 import { Menu } from "./Menu";
@@ -51,7 +51,7 @@ export const Navbar = ({
   };
   return (
     <div className="w-[100vw] flex flex-col z-50 top-0 fixed overflow-x-clip">
-      <m.div
+      <motion.div
         className="relative z-50"
         variants={container}
         initial={"hidden"}
@@ -64,7 +64,7 @@ export const Navbar = ({
             ? "top"
             : "topm"
         }
-        transition={{ type: "tween", duration: 0.1 }}
+        transition={{ type: "tween" }}
       >
         <m.div
           className="absolute w-[200vw] -bottom-[2px] z-10 h-[2px] nav-background"
@@ -83,7 +83,7 @@ export const Navbar = ({
           <Logo />
           <Menu setOpen={setOpen} open={open} />
         </div>
-      </m.div>
+      </motion.div>
       <MenuBody open={open} />
     </div>
   );

@@ -14,7 +14,7 @@ export default function Home() {
   const isMobile = useMediaQuery({ maxWidth: 768 });
 
   return (
-    <LazyMotion features={domAnimation} strict>
+    <LazyMotion features={domAnimation}>
       <div>
         <NoSSRWrapper>{!isMobile && <BehindBg />} </NoSSRWrapper>
         <main>
