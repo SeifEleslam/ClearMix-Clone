@@ -12,6 +12,7 @@ export const Comparance = () => {
   const ref2 = useRef<any>(null);
 
   const playSync = () => {
+    console.log("play fired");
     if (ref1.current && ref2.current) {
       ref1.current.seekTo(0, "seconds");
       ref2.current.seekTo(0, "seconds");
