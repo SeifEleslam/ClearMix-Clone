@@ -48,7 +48,9 @@ export const Section1 = ({ isMobile }: { isMobile: boolean }) => {
             style={{ y: ya }}
           >
             <MutedPlayer
-              newClasses={"rounded-full border-[2px] border-prim"}
+              newClasses={
+                "hidden md:block rounded-full border-[2px] border-prim"
+              }
               url="https://stream.mux.com/nF0201aC029F021b3OSYuIm5j2WEHJEY2q02CzVWwHlTeKbw.m3u8?aspect=0.5625"
             />
           </m.div>
@@ -65,7 +67,9 @@ export const Section1 = ({ isMobile }: { isMobile: boolean }) => {
             style={{ y: ya }}
           >
             <MutedPlayer
-              newClasses={"rounded-full border-[2px] border-sec"}
+              newClasses={
+                "hidden md:block rounded-full border-[2px] border-sec"
+              }
               url="https://stream.mux.com/XF21pO1eUMV00HBXG00miS4e01vDxuwPwQEwKiPLdJR01ZE.m3u8?aspect=1"
             />
           </m.div>
@@ -103,27 +107,8 @@ export const Section1 = ({ isMobile }: { isMobile: boolean }) => {
           </SchButton>
         </m.div>
       </div>
-      <NoSSR>
-        <ReactPlayer
-          playing={true}
-          loop={true}
-          muted={true}
-          width="100%"
-          height="auto"
-          url="https://stream.mux.com/bx5uui2jjvo3rWFasVfiDNheeQ4mMATgKXOZWOZXMf4.m3u8?aspect=0.5625"
-          wrapper={MainVid}
-        />
-
-        <ReactPlayer
-          playing={true}
-          loop={true}
-          muted={true}
-          width="100%"
-          height="auto"
-          url="https://stream.mux.com/bx5uui2jjvo3rWFasVfiDNheeQ4mMATgKXOZWOZXMf4.m3u8?aspect=0.5625"
-          wrapper={MainVidMob}
-        />
-      </NoSSR>
+      <MainVid />
+      <MainVidMob />
     </div>
   );
 };

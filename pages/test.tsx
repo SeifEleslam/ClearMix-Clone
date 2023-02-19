@@ -50,11 +50,7 @@ const Parent = ({
 
   return (
     <div>
-      <div>
-        <MainVidMob>{vid1}</MainVidMob>
-        <p>seif</p>
-        <MainVid>{vid2}</MainVid>
-      </div>
+      <div></div>
       <button
         onClick={() => {
           setHide((prv) => !prv);
