@@ -1,5 +1,4 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
-import Hls from "hls.js";
 import { MainVid, MainVidMob } from "@/src/components/section1/MainVid";
 export default function Test() {
   return (
@@ -12,19 +11,6 @@ export default function Test() {
 export const PermantHls = ({ name }: { name: string }) => {
   const video1 = useRef<HTMLVideoElement>(null!);
   const video2 = useRef<HTMLVideoElement>(null!);
-
-  useEffect(() => {
-    const source = `https://stream.mux.com/bx5uui2jjvo3rWFasVfiDNheeQ4mMATgKXOZWOZXMf4.m3u8?aspect=0.5625`;
-    var hls = new Hls();
-    hls.loadSource(source);
-    hls.attachMedia(video1.current);
-    hls.attachMedia(video2.current);
-    hls.attachMedia(video1.current);
-
-    return () => {
-      hls.destroy();
-    };
-  }, []);
 
   return (
     <div>
