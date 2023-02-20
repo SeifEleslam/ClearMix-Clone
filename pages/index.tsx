@@ -15,7 +15,7 @@ export default function Home() {
 
   return (
     <LazyMotion features={domMax}>
-      <div>
+      <div className="overflow-clip">
         <NoSSRWrapper>{!isMobile && <BehindBg />} </NoSSRWrapper>
         <main>
           <Navbar isDesktop={isDesktop} isMobile={isMobile} />

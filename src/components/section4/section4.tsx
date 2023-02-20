@@ -37,7 +37,7 @@ export const Section4 = () => {
       </m.p>
       <div
         ref={widthRef}
-        className="relative  relative max-w-[50rem] mx-auto h-fit overflow-clip rounded-2xl"
+        className="relative  relative max-w-[70rem] mx-auto h-fit overflow-clip rounded-2xl"
       >
         {width && width !== 0 && <Comparance width={width} />}
       </div>
