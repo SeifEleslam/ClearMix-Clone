@@ -29,28 +29,27 @@ export default function MutedPlayer({
       animate={view ? "show" : "hide"}
       ref={ref}
       style={style}
+      className={newClasses + " overflow-clip"}
     >
-      <div className={newClasses + " overflow-clip"}>
-        <div
-          ref={widthRef}
-          className="w-full"
-          style={!render ? { height: width / 2 } : {}}
-        >
-          <div className="absolute w-full h-full top-0 left-0 bg-bgprim/25"></div>
-          {render && (
-            <ReactPlayer
-              url={url}
-              playing={play}
-              loop={true}
-              muted={true}
-              width="100%"
-              height="auto"
-              onReady={() => {
-                setView(true);
-              }}
-            />
-          )}
-        </div>
+      <div
+        ref={widthRef}
+        className="w-full"
+        style={!render ? { height: width / 2 } : {}}
+      >
+        <div className="absolute w-full h-full top-0 left-0 bg-bgprim/25"></div>
+        {render && (
+          <ReactPlayer
+            url={url}
+            playing={play}
+            loop={true}
+            muted={true}
+            width="100%"
+            height="auto"
+            onReady={() => {
+              setView(true);
+            }}
+          />
+        )}
       </div>
     </m.div>
   );
