@@ -2,6 +2,7 @@ import { m, useScroll, useSpring, useTransform } from "framer-motion";
 import React, { useRef } from "react";
 import useMeasure from "react-use-measure";
 import { SchButton } from "../navbar/MenuBody";
+import NoSSR from "../NoSSR";
 import { Comparance } from "../section4/Comparance";
 import { ChangeText } from "./ChangText";
 import { MainVid, MainVidMob } from "./MainVid";
@@ -27,7 +28,14 @@ export const Section1 = ({ isMobile }: { isMobile: boolean }) => {
         ref={widthRef}
         className="md:m-12 relative h-fit overflow-hidden rounded-2xl"
       >
-        {width && width !== 0 && <Comparance width={width} />}
+        <NoSSR>
+          {width && width !== 0 && (
+            <Comparance
+              constraints={{ left: 50, right: width - 50 }}
+              width={width}
+            />
+          )}
+        </NoSSR>
       </div>
       <div className="mb-20 z-20">
         <m.h1

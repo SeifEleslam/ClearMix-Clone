@@ -1,4 +1,10 @@
-import { m, useInView, useMotionValue, useTransform } from "framer-motion";
+import {
+  m,
+  useInView,
+  useMotionValue,
+  useSpring,
+  useTransform,
+} from "framer-motion";
 import { useRef } from "react";
 import ReactPlayer from "react-player/lazy";
 
@@ -7,7 +13,8 @@ export const Comparance = ({ width }: { width: number }) => {
   const ref1 = useRef<any>(null);
   const ref2 = useRef<any>(null);
   const x = useMotionValue(0.5 * width);
-  const newWidth = useTransform(x, [0, width], ["0%", "100%"]);
+  const xSmooth = useSpring(x, { damping: 50, stiffness: 400 });
+  const newWidth = useTransform(xSmooth, [0, width], ["0%", "100%"]);
   const playSync = () => {
     if (ref1.current && ref2.current) {
       if (
@@ -29,25 +36,27 @@ export const Comparance = ({ width }: { width: number }) => {
   return (
     <div style={!render ? { height: width / 2 } : {}}>
       <m.div
-        style={{ x }}
+        style={{ x: xSmooth }}
         className={`z-20 top-0 translate-x-[${
           width / 2
         }] absolute bg-bgprim h-full w-[1px]`}
       ></m.div>
       <m.div
         drag="x"
+        onDrag={() => {
+          console.log(x.getVelocity());
+        }}
         onDragTransitionEnd={() => {
-          if (x.getPrevious() > width - 50) {
-            x.jump(width - 50);
-          } else if (x.getPrevious() < 50) {
-            x.jump(50);
+          const prev = x.getPrevious();
+          if (prev > width - 150) {
+            x.jump(width - 150);
+          } else if (x.getPrevious() < 150) {
+            x.jump(150);
           }
         }}
-        // dragConstraints={{
-        //   left: 50,
-        //   right: width - 50,
-        // }}
-        style={{ x }}
+        style={{
+          x: xSmooth,
+        }}
         dragMomentum={false}
         whileTap={{ scale: 0.9, color: "#fff" }}
         className="z-20 cursor-pointer text-3xl text-txprim translate-x-[300px] w-[4.5rem] h-[4.5rem] flex justify-center items-center shadow-gold top-0 bottom-0 my-auto h-fit w-fit absolute bg-bgprim -left-[2.25rem] rounded-full "
@@ -81,7 +90,7 @@ export const Comparance = ({ width }: { width: number }) => {
       <m.div
         ref={ref}
         style={{ width: newWidth }}
-        className="absolute h-full bg-bgprim w-[50%] overflow-x-hidden"
+        className="absolute h-full bg-bgprim w-[50%] overflow-hidden"
       >
         <div className="absolute h-full top-0 left-0 bg-bgprim/25"></div>
         <div style={{ width }}>
