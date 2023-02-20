@@ -21,7 +21,7 @@ export default function MutedPlayer({
   const [widthRef, { width }] = useMeasure();
 
   return (
-    <div ref={ref} style={style} className={newClasses + " overflow-clip"}>
+    <div ref={ref} style={style} className={newClasses + " overflow-hidden"}>
       <div
         ref={widthRef}
         className="w-full"
@@ -67,8 +67,8 @@ export default function MutedPlayer({
 //     console.log(render);
 //   }, [render]);
 //   return (
-//     <div ref={ref} style={style} className={newClasses + " overflow-clip"}>
-//       <div className="absolute h-full w-[50%] overflow-x-clip">
+//     <div ref={ref} style={style} className={newClasses + " overflow-hidden"}>
+//       <div className="absolute h-full w-[50%] overflow-x-hidden">
 //         <div className="absolute w-full h-full top-0 left-0 bg-bgprim/25"></div>
 //         {render && (
 //           <ReactPlayer

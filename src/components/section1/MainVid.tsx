@@ -36,11 +36,11 @@ export const MainVid = () => {
         className="sticky"
       >
         <m.div
-          className="left-0 right-0 w-[50rem] max-w-[100%] overflow-clip mx-auto w-[50%]"
+          className="left-0 right-0 w-[50rem] max-w-[100%] overflow-hidden mx-auto w-[50%]"
           style={{ width }}
         >
           <m.div
-            className="overflow-clip w-full border-black border-[2px] relative"
+            className="overflow-hidden w-full border-black border-[2px] relative"
             style={{ borderRadius }}
           >
             <MutedPlayer
@@ -58,8 +58,8 @@ export const MainVidMob = () => {
   return (
     <div className="mt-20 md:hidden block mx-6">
       <m.div className="sticky">
-        <m.div className="left-0 right-0 w-[50rem] max-w-[100%] overflow-clip mx-auto w-[50%]">
-          <m.div className="overflow-clip rounded-2xl  w-full border-black border-[2px] relative">
+        <m.div className="left-0 right-0 w-[50rem] max-w-[100%] overflow-hidden mx-auto w-[50%]">
+          <m.div className="overflow-hidden rounded-2xl  w-full border-black border-[2px] relative">
             <MutedPlayer
               url="https://stream.mux.com/bx5uui2jjvo3rWFasVfiDNheeQ4mMATgKXOZWOZXMf4.m3u8?aspect=0.5625"
               newClasses=""

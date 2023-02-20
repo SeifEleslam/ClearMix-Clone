@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Navbar } from "../src/components/navbar/Navbar";
-import { domAnimation, LazyMotion } from "framer-motion";
+import { domMax, LazyMotion } from "framer-motion";
 import { BehindBg } from "../src/components/BehindBg";
 import { Section1 } from "../src/components/section1/section1";
 import { Section2 } from "../src/components/section2/section2";
@@ -14,7 +14,7 @@ export default function Home() {
   const isMobile = useMediaQuery({ maxWidth: 768 });
 
   return (
-    <LazyMotion features={domAnimation}>
+    <LazyMotion features={domMax}>
       <div>
         <NoSSRWrapper>{!isMobile && <BehindBg />} </NoSSRWrapper>
         <main>

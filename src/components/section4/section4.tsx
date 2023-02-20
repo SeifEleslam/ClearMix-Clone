@@ -1,7 +1,10 @@
 import { m } from "framer-motion";
+import useMeasure from "react-use-measure";
 import { Comparance } from "./Comparance";
 
 export const Section4 = () => {
+  const [widthRef, { width }] = useMeasure();
+
   return (
     <div className="relative text-center mx-auto p-6 mt-20 z-20 max-w-[85rem] ">
       <p className="uppercase max-w-[40rem] mx-auto text-txsub mb-4 tracking-[1.5vw]">
@@ -32,7 +35,12 @@ export const Section4 = () => {
         After recording quality footage with our virtual recording studio, we
         add custom branded logo bumpers, transitions, b-roll and overlays.
       </m.p>
-      <Comparance />
+      <div
+        ref={widthRef}
+        className="md:m-12 relative h-fit overflow-hidden rounded-2xl"
+      >
+        <Comparance width={width} />
+      </div>
     </div>
   );
 };
