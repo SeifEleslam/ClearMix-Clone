@@ -37,21 +37,16 @@ export const Comparance = ({ width }: { width: number }) => {
     <div style={!render ? { height: width / 2 } : {}}>
       <m.div
         style={{ x: xSmooth }}
-        className={`z-20 top-0 translate-x-[${
-          width / 2
-        }] absolute bg-bgprim h-full w-[1px]`}
+        className={`z-10 top-0 absolute bg-bgprim h-full w-[1px]`}
       ></m.div>
       <m.div
         drag="x"
-        onDrag={() => {
-          console.log(x.getVelocity());
-        }}
         onDragTransitionEnd={() => {
-          const prev = x.getPrevious();
+          const prev = xSmooth.get();
           if (prev > width - 150) {
-            x.jump(width - 150);
-          } else if (x.getPrevious() < 150) {
-            x.jump(150);
+            xSmooth.jump(width - 150);
+          } else if (prev < 150) {
+            xSmooth.jump(150);
           }
         }}
         style={{

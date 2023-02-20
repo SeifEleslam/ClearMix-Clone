@@ -28,14 +28,7 @@ export const Section1 = ({ isMobile }: { isMobile: boolean }) => {
         ref={widthRef}
         className="md:m-12 relative h-fit overflow-hidden rounded-2xl"
       >
-        <NoSSR>
-          {width && width !== 0 && (
-            <Comparance
-              constraints={{ left: 50, right: width - 50 }}
-              width={width}
-            />
-          )}
-        </NoSSR>
+        {width && width !== 0 && <Comparance width={width} />}
       </div>
       <div className="mb-20 z-20">
         <m.h1
