@@ -49,7 +49,10 @@ export const Comparance = ({ width }: { width: number }) => {
         style={{ x: xSmooth }}
         className={`z-10 top-0 absolute bg-bgprim h-full w-[1px]`}
       ></m.div>
-      <m.div
+      <m.button
+        initial={{ scale: 0 }}
+        whileInView={{ scale: 1, transition: { delay: 0.3 } }}
+        viewport={{ once: true }}
         drag="x"
         onDragTransitionEnd={dragLimit}
         style={{
@@ -84,7 +87,7 @@ export const Comparance = ({ width }: { width: number }) => {
             strokeLinejoin="round"
           ></path>
         </svg>
-      </m.div>
+      </m.button>
       <m.div
         ref={ref}
         style={{ width: newWidth }}
