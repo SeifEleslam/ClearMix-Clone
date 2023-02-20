@@ -36,14 +36,21 @@ export const Comparance = ({ width }: { width: number }) => {
       ></m.div>
       <m.div
         drag="x"
-        dragConstraints={{
-          left: 0.25 * width,
-          right: 0.75 * width,
+        onDragTransitionEnd={() => {
+          if (x.getPrevious() > width - 50) {
+            x.jump(width - 50);
+          } else if (x.getPrevious() < 50) {
+            x.jump(50);
+          }
         }}
+        // dragConstraints={{
+        //   left: 50,
+        //   right: width - 50,
+        // }}
         style={{ x }}
-        dragMomentum={true}
+        dragMomentum={false}
         whileTap={{ scale: 0.9, color: "#fff" }}
-        className="z-20 cursor-pointer text-3xl translate-x-[300px] w-[4.5rem] h-[4.5rem] flex justify-center items-center shadow-gold top-0 bottom-0 my-auto h-fit w-fit absolute bg-bgprim -left-[2.25rem] rounded-full "
+        className="z-20 cursor-pointer text-3xl text-txprim translate-x-[300px] w-[4.5rem] h-[4.5rem] flex justify-center items-center shadow-gold top-0 bottom-0 my-auto h-fit w-fit absolute bg-bgprim -left-[2.25rem] rounded-full "
       >
         <svg
           data-v-6f5cf7c2=""
@@ -56,18 +63,18 @@ export const Comparance = ({ width }: { width: number }) => {
           <path
             d="M7.00391 12L2.00391 7L7.00391 2"
             stroke="currentColor"
-            stroke-width="3"
-            stroke-miterlimit="10"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="3"
+            strokeMiterlimit="10"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           ></path>
           <path
             d="M21.812 2L26.812 7L21.812 12"
             stroke="currentColor"
-            stroke-width="3"
-            stroke-miterlimit="10"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="3"
+            strokeMiterlimit="10"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           ></path>
         </svg>
       </m.div>
