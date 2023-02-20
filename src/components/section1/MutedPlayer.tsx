@@ -21,7 +21,7 @@ export default function MutedPlayer({
   const [widthRef, { width }] = useMeasure();
 
   return (
-    <div ref={ref} style={style} className={newClasses + " overflow-hidden"}>
+    <div ref={ref} style={style} className={newClasses + " overflow-clip"}>
       <div
         ref={widthRef}
         className="w-full"

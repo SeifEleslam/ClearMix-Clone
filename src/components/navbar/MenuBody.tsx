@@ -112,7 +112,7 @@ export const LoginButton = ({
   };
   return (
     <m.button
-      className={`${widthClass} overflow-hidden text-prim bg-bgsec relative rounded-full`}
+      className={`${widthClass} overflow-clip text-prim bg-bgsec relative rounded-full`}
       whileHover="hover"
       variants={buttonVariant}
     >

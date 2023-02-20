@@ -5,7 +5,7 @@ import {
   useSpring,
   useTransform,
 } from "framer-motion";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import ReactPlayer from "react-player/lazy";
 
 export const Comparance = ({ width }: { width: number }) => {
@@ -15,6 +15,14 @@ export const Comparance = ({ width }: { width: number }) => {
   const x = useMotionValue(0.5 * width);
   const xSmooth = useSpring(x, { damping: 50, stiffness: 400 });
   const newWidth = useTransform(xSmooth, [0, width], ["0%", "100%"]);
+  const dragLimit = () => {
+    const prev = xSmooth.get();
+    if (prev > width * 0.85) {
+      xSmooth.set(width * 0.85);
+    } else if (prev < width * 0.15) {
+      xSmooth.set(width * 0.15);
+    }
+  };
   const playSync = () => {
     if (ref1.current && ref2.current) {
       if (
@@ -30,6 +38,8 @@ export const Comparance = ({ width }: { width: number }) => {
     }
   };
 
+  useEffect(dragLimit, [width]);
+
   const render = useInView(ref, { once: true });
   const play = useInView(ref);
 
@@ -41,20 +51,13 @@ export const Comparance = ({ width }: { width: number }) => {
       ></m.div>
       <m.div
         drag="x"
-        onDragTransitionEnd={() => {
-          const prev = xSmooth.get();
-          if (prev > width - 150) {
-            xSmooth.jump(width - 150);
-          } else if (prev < 150) {
-            xSmooth.jump(150);
-          }
-        }}
+        onDragTransitionEnd={dragLimit}
         style={{
           x: xSmooth,
         }}
         dragMomentum={false}
         whileTap={{ scale: 0.9, color: "#fff" }}
-        className="z-20 cursor-pointer text-3xl text-txprim translate-x-[300px] w-[4.5rem] h-[4.5rem] flex justify-center items-center shadow-gold top-0 bottom-0 my-auto h-fit w-fit absolute bg-bgprim -left-[2.25rem] rounded-full "
+        className="z-20 cursor-pointer text-txprim translate-x-[300px] md:w-[4.5rem] w-[3rem] md:h-[4.5rem] h-[3rem] md:-left-[2.25rem] -left-[1.5rem] flex justify-center items-center shadow-gold top-0 bottom-0 my-auto absolute bg-bgprim rounded-full "
       >
         <svg
           data-v-6f5cf7c2=""
@@ -85,7 +88,7 @@ export const Comparance = ({ width }: { width: number }) => {
       <m.div
         ref={ref}
         style={{ width: newWidth }}
-        className="absolute h-full bg-bgprim w-[50%] overflow-hidden"
+        className="absolute h-full bg-bgprim w-[50%] overflow-clip"
       >
         <div className="absolute h-full top-0 left-0 bg-bgprim/25"></div>
         <div style={{ width }}>

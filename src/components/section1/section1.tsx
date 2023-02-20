@@ -20,16 +20,9 @@ export const Section1 = ({ isMobile }: { isMobile: boolean }) => {
     damping: 30,
     restDelta: 0.001,
   });
-  const [widthRef, { width }] = useMeasure();
 
   return (
     <div className="relative z-20 text-center text-txprim ">
-      <div
-        ref={widthRef}
-        className="md:m-12 relative h-fit overflow-hidden rounded-2xl"
-      >
-        {width && width !== 0 && <Comparance width={width} />}
-      </div>
       <div className="mb-20 z-20">
         <m.h1
           className="md:text-5xl xl:text-8xl lg:text-7xl text-4xl mb-4"
