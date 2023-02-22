@@ -50,7 +50,7 @@ export const Comparance = ({ width }: { width: number }) => {
         style={{ x: xSmooth }}
         className={`z-10 top-0 absolute bg-bgprim h-full w-[1px]`}
       ></motion.div>
-      <m.button
+      <motion.button
         initial={{ scale: 0 }}
         whileInView={{ scale: 1, transition: { delay: 0.3 } }}
         viewport={{ once: true }}
@@ -88,7 +88,7 @@ export const Comparance = ({ width }: { width: number }) => {
             strokeLinejoin="round"
           ></path>
         </svg>
-      </m.button>
+      </motion.button>
       <motion.div
         ref={ref}
         style={{ width: newWidth }}
