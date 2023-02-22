@@ -1,4 +1,4 @@
-import { m } from "framer-motion";
+import { m, motion } from "framer-motion";
 import React, { useEffect } from "react";
 import lottie from "lottie-web/build/player/lottie_light";
 import menuLogo from "../../assets/svgs/menu2.json";
@@ -14,7 +14,7 @@ export const Menu = ({ open, setOpen }: { open: boolean; setOpen: any }) => {
     });
   }, []);
   return (
-    <m.div>
+    <motion.div>
       <button
         className="w-12 h-12 cursor-pointer lg:hidden"
         onClick={() => {
@@ -55,6 +55,6 @@ export const Menu = ({ open, setOpen }: { open: boolean; setOpen: any }) => {
           SCHADULE A CALL
         </LoginButton>
       </div>
-    </m.div>
+    </motion.div>
   );
 };

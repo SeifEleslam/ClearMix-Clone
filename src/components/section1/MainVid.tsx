@@ -1,4 +1,4 @@
-import { m, useScroll, useTransform, useSpring } from "framer-motion";
+import { m, useScroll, useTransform, useSpring, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import useMeasure from "react-use-measure";
 import MutedPlayer from "./MutedPlayer";
@@ -9,7 +9,7 @@ export const MainVid = () => {
   const [windowH, setWindowH] = useState(0);
   const { scrollYProgress } = useScroll({
     target: secRef,
-    offset: ["start center", "end end"],
+    offset: ["start center", "end center"],
   });
   const widthTran = useTransform(scrollYProgress, [0, 1], [800, 1500]);
   const width = useSpring(widthTran, { stiffness: 1000, damping: 100 });
@@ -33,16 +33,16 @@ export const MainVid = () => {
       ref={secRef}
       className="md:block hidden h-[70vh] min-h-[70vw] mt-20 mx-6"
     >
-      <m.div
+      <motion.div
         ref={ref}
         style={{ top: (windowH - height) / 2 }}
         className="sticky"
       >
-        <m.div
+        <motion.div
           className="w-[800px] max-w-[100%] min-w-[50%] mx-auto w-[50%]"
           style={{ width }}
         >
-          <m.div
+          <motion.div
             className="overflow-clip shadow-gold relative"
             style={{ borderRadius }}
           >
@@ -50,9 +50,9 @@ export const MainVid = () => {
               url="https://stream.mux.com/bx5uui2jjvo3rWFasVfiDNheeQ4mMATgKXOZWOZXMf4.m3u8?aspect=0.5625"
               newClasses=""
             />
-          </m.div>
-        </m.div>
-      </m.div>
+          </motion.div>
+        </motion.div>
+      </motion.div>
     </div>
   );
 };

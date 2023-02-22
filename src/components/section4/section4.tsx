@@ -1,4 +1,4 @@
-import { m } from "framer-motion";
+import { m, motion } from "framer-motion";
 import useMeasure from "react-use-measure";
 import { Comparance } from "./Comparance";
 

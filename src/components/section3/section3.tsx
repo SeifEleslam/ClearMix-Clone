@@ -1,4 +1,4 @@
-import { m } from "framer-motion";
+import { m, motion } from "framer-motion";
 import NoSSRWrapper from "../NoSSR";
 import MutedPlayer from "../section1/MutedPlayer";
 

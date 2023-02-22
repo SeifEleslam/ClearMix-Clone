@@ -1,4 +1,4 @@
-import { AnimatePresence, m } from "framer-motion";
+import { AnimatePresence, m, motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
 
 export const ChangeText = () => {
@@ -44,13 +44,13 @@ export const ChangeText = () => {
     return () => clearInterval(intervalId);
   }, []);
   return (
-    <m.div
+    <motion.div
       initial={{ opacity: 0, y: 40 }}
       viewport={{ once: true }}
       whileInView={{ opacity: 1, y: 0, transition: { delay: 0.2 } }}
     >
       <AnimatePresence>
-        <m.div
+        <motion.div
           key={state}
           variants={variants}
           exit={"hideagain"}
@@ -60,9 +60,9 @@ export const ChangeText = () => {
           <h1 className="absolute left-0 right-0 mx-auto  md:text-5xl textgrd xl:text-8xl lg:text-7xl text-4xl">
             {state}
           </h1>
-        </m.div>
+        </motion.div>
       </AnimatePresence>
       <div className="h-16"></div>
-    </m.div>
+    </motion.div>
   );
 };
