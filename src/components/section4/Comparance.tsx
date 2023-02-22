@@ -104,12 +104,11 @@ export const Comparance = ({ width }: { width: number }) => {
               muted={true}
               width="100%"
               height="auto"
-              onProgress={playSync}
             />
           )}
         </div>
       </m.div>
-      <div className="w-full">
+      <div className="w-full bg-bgprim">
         <div className="absolute w-full h-fit top-0 left-0 bg-bgprim/25"></div>
         {render && (
           <ReactPlayer
@@ -120,6 +119,7 @@ export const Comparance = ({ width }: { width: number }) => {
             muted={true}
             width="100%"
             height="auto"
+            onProgress={playSync}
           />
         )}
       </div>
