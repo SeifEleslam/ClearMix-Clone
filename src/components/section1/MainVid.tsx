@@ -9,10 +9,13 @@ export const MainVid = () => {
   const [windowH, setWindowH] = useState(0);
   const { scrollYProgress } = useScroll({
     target: secRef,
-    offset: ["start center", "end center"],
+    offset: ["start center", "end end"],
   });
-  const width = useTransform(scrollYProgress, [0, 1], ["50rem", "85rem"]);
-  const borderRadius = useTransform(scrollYProgress, [0, 1], [400, 20]);
+  const widthTran = useTransform(scrollYProgress, [0, 1], [800, 1500]);
+  const width = useSpring(widthTran, { stiffness: 1000, damping: 100 });
+  const borderRadiusTran = useTransform(scrollYProgress, [0, 1], [400, 20]);
+  const borderRadius = useSpring(borderRadiusTran);
+
   // const top = useSpring(height ? (windowH - height) / 2 : 0);
 
   useEffect(() => {
@@ -28,7 +31,7 @@ export const MainVid = () => {
   return (
     <div
       ref={secRef}
-      className="md:block hidden h-[100vh] min-h-[100vw] mt-20 mx-6"
+      className="md:block hidden h-[70vh] min-h-[70vw] mt-20 mx-6"
     >
       <m.div
         ref={ref}
@@ -36,7 +39,7 @@ export const MainVid = () => {
         className="sticky"
       >
         <m.div
-          className="w-[50rem] max-w-[100%] mx-auto w-[50%]"
+          className="w-[800px] max-w-[100%] min-w-[50%] mx-auto w-[50%]"
           style={{ width }}
         >
           <m.div
