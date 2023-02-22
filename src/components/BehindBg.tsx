@@ -1,4 +1,4 @@
-import { delay, m, useMotionValue, useTransform } from "framer-motion";
+import { m, motion, useMotionValue, useTransform } from "framer-motion";
 import React, { useEffect } from "react";
 
 export const BehindBg = () => {
@@ -21,10 +21,10 @@ export const BehindBg = () => {
     <div className="z-0 overflow-clip fixed w-full h-full top-0 left-0 blur-2xl">
       <div className="absolute w-full h-full top-0 left-0 bg-bgprim/75 z-10 "></div>
       <div className="fixed w-[100vw] h-[100vh] ">
-        <m.div
+        <motion.div
           className={`w-[100%] absolute inset-0 h-[100%] opacity-50 duration-[10000ms] rounded-full bg-prim `}
           style={{ rotateY, rotateX: 45 }}
-        ></m.div>
+        ></motion.div>
       </div>
     </div>
   );

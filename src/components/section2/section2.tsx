@@ -10,7 +10,7 @@ import shifts from "../../assets/images/shifts.png";
 import jaffe from "../../assets/images/jaffe.png";
 import kron from "../../assets/images/kron.png";
 import qomplx from "../../assets/images/qomplx.png";
-import { m } from "framer-motion";
+import { m, motion } from "framer-motion";
 
 export const Section2 = () => {
   const images = [
@@ -30,14 +30,14 @@ export const Section2 = () => {
       <p className="text-txsub mb-4 tracking-[1.5vw]">
         WIDELY USED BY PROFESSIONALS
       </p>
-      <m.h2
+      <motion.div
         className="md:text-5xl textgrd xl:text-8xl lg:text-7xl text-4xl"
         initial={{ opacity: 0, y: 40 }}
         viewport={{ once: true }}
         whileInView={{ opacity: 1, y: 0 }}
       >
         TRUSTED BY TEAMS AT
-      </m.h2>
+      </motion.div>
       <div className="flex bg-prim/[.2] shadow-2xl flex-wrap items-center md:px-5 pb-10 justify-center space-y-10 md:rounded-full rounded-2xl mt-10">
         <div></div>
         {images.map((val, i) => {
@@ -56,7 +56,7 @@ export const TrustedComp = ({
   i: number;
 }) => {
   return (
-    <m.div
+    <motion.div
       className="relative w-[50%] max-h-[5rem] md:w-auto px-6 lg:px-10"
       initial={{
         opacity: 0,
@@ -75,6 +75,6 @@ export const TrustedComp = ({
         className=" max-h-[5rem] w-auto max-w-[100%] md:max-w-[10rem] mx-auto "
         loading="lazy"
       />
-    </m.div>
+    </motion.div>
   );
 };

@@ -1,4 +1,4 @@
-import { m, useScroll, useSpring, useTransform } from "framer-motion";
+import { m, motion, useScroll, useSpring, useTransform } from "framer-motion";
 import React, { useRef } from "react";
 import useMeasure from "react-use-measure";
 import { SchButton } from "../navbar/MenuBody";
@@ -24,14 +24,14 @@ export const Section1 = ({ isMobile }: { isMobile: boolean }) => {
   return (
     <div className="relative z-20 text-center text-txprim ">
       <div className="mb-20 z-20">
-        <m.h1
+        <motion.div
           className="md:text-5xl xl:text-8xl lg:text-7xl text-4xl mb-4"
           initial={{ opacity: 0, y: 40 }}
           viewport={{ once: true }}
           whileInView={{ opacity: 1, y: 0 }}
         >
           Have Professional
-        </m.h1>
+        </motion.div>
         <ChangeText />
       </div>
       <div ref={secRef} className="relative overflow-x-clip w-full">
@@ -58,15 +58,15 @@ export const Section1 = ({ isMobile }: { isMobile: boolean }) => {
           />
         </div>
 
-        <m.h1
+        <motion.div
           className="md:text-5xl xl:text-8xl lg:text-7xl text-4xl mb-4"
           initial={{ opacity: 0, y: 40 }}
           viewport={{ once: true }}
           whileInView={{ opacity: 1, y: 0, transition: { delay: 0.4 } }}
         >
           Created Remotely
-        </m.h1>
-        <m.div
+        </motion.div>
+        <motion.div
           initial={{ opacity: 0, y: 40 }}
           viewport={{ once: true }}
           whileInView={{ opacity: 1, y: 0, transition: { delay: 0.6 } }}
@@ -75,8 +75,8 @@ export const Section1 = ({ isMobile }: { isMobile: boolean }) => {
             We are a virtual video production house, helping companies create
             video content remotely with professional producers and editors
           </p>
-        </m.div>
-        <m.div
+        </motion.div>
+        <motion.div
           initial={{ opacity: 0, y: 40 }}
           viewport={{ once: true }}
           whileInView={{
@@ -88,7 +88,7 @@ export const Section1 = ({ isMobile }: { isMobile: boolean }) => {
           <SchButton widthClass={"md:w-[20rem] w-[15rem]"}>
             SCHEDULE A CALL
           </SchButton>
-        </m.div>
+        </motion.div>
       </div>
       <MainVid />
       <MainVidMob />

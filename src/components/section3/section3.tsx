@@ -8,23 +8,23 @@ export const Section3 = () => {
       <p className="uppercase text-txsub mb-4 tracking-[1.5vw]">
         Content Without Hassle
       </p>
-      <m.h1
+      <motion.div
         className="text-txprim md:text-5xl xl:text-8xl lg:text-7xl text-4xl mb-4"
         initial={{ opacity: 0, y: 40 }}
         viewport={{ once: true }}
         whileInView={{ opacity: 1, y: 0 }}
       >
         The New-Tech Way of
-      </m.h1>
-      <m.h2
+      </motion.div>
+      <motion.div
         className="md:text-5xl textgrd xl:text-8xl lg:text-7xl text-4xl p-2"
         initial={{ opacity: 0, y: 40 }}
         viewport={{ once: true }}
         whileInView={{ opacity: 1, y: 0 }}
       >
         Creating Produced Videos
-      </m.h2>
-      <m.p
+      </motion.div>
+      <motion.div
         className="text-txprim mt-6 text-xl mb-24 max-w-[42rem] mx-auto xl:leading-[3rem]  leading-10 "
         initial={{ opacity: 0, y: 40 }}
         viewport={{ once: true }}
@@ -33,7 +33,7 @@ export const Section3 = () => {
         We are a fully-managed video production studio, removing the stress of
         creating video assets. By not having brick-and-mortar studios, we can
         begin shooting videos through your webcam or phone tomorrow.
-      </m.p>
+      </motion.div>
       <div className="relative flex h-fit md:px-5 justify-center space-x-2 md:space-x-6 mt-10">
         <MutedPlayer
           url="https://stream.mux.com/02tYe00tEaNq01aeFvEI55NphX01vSs02KtcUzD005njLv17Q.m3u8?aspect=0.5625"
@@ -96,7 +96,7 @@ const VoiceWaves = () => {
 
 const Bar = ({ i, scaleY }: { i: number; scaleY: number }) => {
   return (
-    <m.div
+    <motion.div
       className={` absolute w-[2px] h-full barbg`}
       animate={{
         x: ["13rem", "-.5rem"],
@@ -108,6 +108,6 @@ const Bar = ({ i, scaleY }: { i: number; scaleY: number }) => {
         delay: i * 0.25,
       }}
       style={{ scaleY }}
-    ></m.div>
+    ></motion.div>
   );
 };

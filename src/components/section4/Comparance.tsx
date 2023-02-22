@@ -45,10 +45,10 @@ export const Comparance = ({ width }: { width: number }) => {
 
   return (
     <div style={!render ? { height: width / 2 } : {}}>
-      <m.div
+      <motion.div
         style={{ x: xSmooth }}
         className={`z-10 top-0 absolute bg-bgprim h-full w-[1px]`}
-      ></m.div>
+      ></motion.div>
       <m.button
         initial={{ scale: 0 }}
         whileInView={{ scale: 1, transition: { delay: 0.3 } }}
@@ -88,7 +88,7 @@ export const Comparance = ({ width }: { width: number }) => {
           ></path>
         </svg>
       </m.button>
-      <m.div
+      <motion.div
         ref={ref}
         style={{ width: newWidth }}
         className="absolute h-full bg-bgprim w-[50%] overflow-clip"
@@ -107,7 +107,7 @@ export const Comparance = ({ width }: { width: number }) => {
             />
           )}
         </div>
-      </m.div>
+      </motion.div>
       <div className="w-full bg-bgprim">
         <div className="absolute w-full h-fit top-0 left-0 bg-bgprim/25"></div>
         {render && (

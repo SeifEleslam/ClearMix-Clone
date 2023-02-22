@@ -51,7 +51,7 @@ export const Navbar = ({
   };
   return (
     <div className="w-[100vw] flex flex-col z-50 top-0 fixed overflow-x-clip">
-      <m.div
+      <motion.div
         className="relative z-50"
         variants={container}
         initial={"hidden"}
@@ -66,7 +66,7 @@ export const Navbar = ({
         }
         transition={{ type: "tween" }}
       >
-        <m.div
+        <motion.div
           className="absolute w-[200vw] -bottom-[2px] z-10 h-[2px] nav-background"
           whileInView={{
             x: ["-10vw", "-100vw", "-50vw", "-100vw", "-10vw"],
@@ -78,12 +78,12 @@ export const Navbar = ({
             repeat: Infinity,
             repeatDelay: 0.1,
           }}
-        ></m.div>
+        ></motion.div>
         <div className={navbar}>
           <Logo />
           <Menu setOpen={setOpen} open={open} />
         </div>
-      </m.div>
+      </motion.div>
       <MenuBody open={open} />
     </div>
   );

@@ -1,4 +1,4 @@
-import { m, useInView } from "framer-motion";
+import { m, motion, useInView } from "framer-motion";
 import dynamic from "next/dynamic";
 import { useRef, useState } from "react";
 import useMeasure from "react-use-measure";
@@ -23,7 +23,7 @@ export default function MutedPlayer({
   const [widthRef, { width }] = useMeasure();
 
   return (
-    <m.div
+    <motion.div
       variants={variants}
       initial="hide"
       animate={view ? "show" : "hide"}
@@ -51,6 +51,6 @@ export default function MutedPlayer({
           />
         )}
       </div>
-    </m.div>
+    </motion.div>
   );
 }

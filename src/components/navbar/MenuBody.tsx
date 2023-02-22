@@ -1,4 +1,4 @@
-import { AnimatePresence, m } from "framer-motion";
+import { AnimatePresence, m, motion } from "framer-motion";
 import { type } from "os";
 import React from "react";
 
@@ -6,7 +6,7 @@ export const MenuBody = ({ open }: { open: boolean }) => {
   return (
     <AnimatePresence>
       {open && (
-        <m.div
+        <motion.div
           className="fixed w-full h-full lg:hidden"
           initial={{ scale: 1, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
@@ -14,7 +14,7 @@ export const MenuBody = ({ open }: { open: boolean }) => {
         >
           <div className="w-full h-full p-2 overflow-scroll">
             <div className="flex relative z-10 flex-col w-full h-full min-h-[500px] ">
-              <m.div
+              <motion.div
                 className="w-full flex-1 flex justify-center items-center flex-col"
                 initial={{ opacity: 0 }}
                 animate={{
@@ -31,8 +31,8 @@ export const MenuBody = ({ open }: { open: boolean }) => {
                     </Item>
                   );
                 })}
-              </m.div>
-              <m.div
+              </motion.div>
+              <motion.div
                 className="flex flex-col md:flex-row justify-center items-center h-fit p-4 md:space-x-10 md:space-y-0 space-y-5"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1, transition: { delay: 0.4 } }}
@@ -40,17 +40,17 @@ export const MenuBody = ({ open }: { open: boolean }) => {
               >
                 <LoginButton widthClass="w-full p-6">LOGIN</LoginButton>
                 <SchButton widthClass="w-full">SCHEDULE A CALL</SchButton>
-              </m.div>
+              </motion.div>
             </div>
           </div>
 
-          <m.div
+          <motion.div
             className="bg-bgprim absolute left-0 right-0 mx-auto top-0 bottom-0 my-auto z-0 w-24 h-24 rounded-full"
             initial={{ scale: 4 }}
             animate={{ scale: 15 }}
             transition={{ duration: 0.4, type: "tween" }}
-          ></m.div>
-        </m.div>
+          ></motion.div>
+        </motion.div>
       )}
     </AnimatePresence>
   );
@@ -117,13 +117,13 @@ export const LoginButton = ({
       variants={buttonVariant}
     >
       <p className="z-10 relative">{children}</p>
-      <m.div
+      <motion.div
         className={`w-full z-0 h-full top-[100%] left-0 right-0 mx-auto absolute rounded-[100%] ${
           colorClass ? colorClass : "log-bg "
         }`}
         variants={bgVariant}
         transition={{ duration: 0.3 }}
-      ></m.div>
+      ></motion.div>
     </m.button>
   );
 };
