@@ -1,4 +1,4 @@
-import { m, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import React, { useEffect } from "react";
 import lottie from "lottie-web/build/player/lottie_light";
 import menuLogo from "../../assets/svgs/menu2.json";
@@ -27,7 +27,7 @@ export const Menu = ({ open, setOpen }: { open: boolean; setOpen: any }) => {
       <div className="hidden lg:block flex ">
         {["Solutions", "Pricing", "Blog"].map((item, i) => {
           return (
-            <m.a
+            <motion.a
               key={i}
               className="text-md text-txprim flex-1 mx-4"
               href={"#" + item}
@@ -42,7 +42,7 @@ export const Menu = ({ open, setOpen }: { open: boolean; setOpen: any }) => {
               }}
             >
               {item}
-            </m.a>
+            </motion.a>
           );
         })}
         <LoginButton

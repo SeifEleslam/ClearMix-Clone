@@ -1,4 +1,4 @@
-import { m, motion, useMotionValue, useTransform } from "framer-motion";
+import { motion, useMotionValue, useTransform } from "framer-motion";
 import React, { useEffect } from "react";
 
 export const BehindBg = () => {

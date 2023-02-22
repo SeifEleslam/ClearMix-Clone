@@ -1,12 +1,10 @@
 import * as React from "react";
 import { Navbar } from "../src/components/navbar/Navbar";
-// import { domMax, LazyMotion } from "framer-motion";
 import { BehindBg } from "../src/components/BehindBg";
 import { Section1 } from "../src/components/section1/section1";
 import { Section2 } from "../src/components/section2/section2";
 import { Section3 } from "@/src/components/section3/section3";
 import { useMediaQuery } from "react-responsive";
-import NoSSRWrapper from "../src/components/NoSSR";
 import { Section4 } from "@/src/components/section4/section4";
 import NoSSR from "../src/components/NoSSR";
 
@@ -15,7 +13,6 @@ export default function Home() {
   const isMobile = useMediaQuery({ maxWidth: 768 });
 
   return (
-    // <LazyMotion features={domMax}>
     <div className="overflow-clip">
       <NoSSR>{!isMobile && <BehindBg />}</NoSSR>
       <main>
@@ -28,6 +25,5 @@ export default function Home() {
         </div>
       </main>
     </div>
-    // </LazyMotion>
   );
 }

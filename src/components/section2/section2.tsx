@@ -10,7 +10,7 @@ import shifts from "../../assets/images/shifts.png";
 import jaffe from "../../assets/images/jaffe.png";
 import kron from "../../assets/images/kron.png";
 import qomplx from "../../assets/images/qomplx.png";
-import { m, motion } from "framer-motion";
+import { motion } from "framer-motion";
 
 export const Section2 = () => {
   const images = [

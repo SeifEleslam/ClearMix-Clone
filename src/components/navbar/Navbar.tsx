@@ -1,4 +1,4 @@
-import { m, motion, useScroll } from "framer-motion";
+import { motion, useScroll } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import { Logo } from "./Logo";
 import { Menu } from "./Menu";

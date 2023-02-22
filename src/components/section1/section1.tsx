@@ -1,9 +1,6 @@
-import { m, motion, useScroll, useSpring, useTransform } from "framer-motion";
+import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import React, { useRef } from "react";
-import useMeasure from "react-use-measure";
 import { SchButton } from "../navbar/MenuBody";
-import NoSSR from "../NoSSR";
-import { Comparance } from "../section4/Comparance";
 import { ChangeText } from "./ChangText";
 import { MainVid, MainVidMob } from "./MainVid";
 import MutedPlayer from "./MutedPlayer";

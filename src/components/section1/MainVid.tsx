@@ -1,4 +1,4 @@
-import { m, useScroll, useTransform, useSpring, motion } from "framer-motion";
+import { useScroll, useTransform, useSpring, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import useMeasure from "react-use-measure";
 import MutedPlayer from "./MutedPlayer";
@@ -15,8 +15,6 @@ export const MainVid = () => {
   const width = useSpring(widthTran, { stiffness: 1000, damping: 100 });
   const borderRadiusTran = useTransform(scrollYProgress, [0, 1], [400, 20]);
   const borderRadius = useSpring(borderRadiusTran);
-
-  // const top = useSpring(height ? (windowH - height) / 2 : 0);
 
   useEffect(() => {
     function handleResize() {
