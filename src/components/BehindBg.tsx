@@ -8,7 +8,7 @@ export const BehindBg = () => {
   // const rotateX = useTransform(mouseX, [0, 10000], [0, 2000]);
   const rotateY = useTransform(mouseY, [0, 100000], [0, 20000]);
 
-  function handleMouse(event: MouseEvent) {
+  function handleMouse(event: any) {
     // mouseX.set(event.pageX);
     mouseY.set(event.pageX);
   }
