@@ -1,5 +1,4 @@
 import { AnimatePresence, m, motion } from "framer-motion";
-import { type } from "os";
 import React from "react";
 
 export const MenuBody = ({ open }: { open: boolean }) => {
@@ -58,7 +57,7 @@ export const MenuBody = ({ open }: { open: boolean }) => {
 
 const Item = ({ children, i }: { children: React.ReactNode; i: number }) => {
   return (
-    <m.a
+    <motion.a
       className="text-3xl text-txprim my-4"
       href={"#" + children}
       initial={{
@@ -73,7 +72,7 @@ const Item = ({ children, i }: { children: React.ReactNode; i: number }) => {
       exit={{ opacity: 0 }}
     >
       {children}
-    </m.a>
+    </motion.a>
   );
 };
 
@@ -85,14 +84,14 @@ export const SchButton = ({
   children: React.ReactNode;
 }) => {
   return (
-    <m.button
+    <motion.button
       className={`${widthClass} schshadow sub-bg p-6 text-xl rounded-full text-txdef`}
       initial={{ backgroundPositionX: "10%", y: 0 }}
       whileHover={{ backgroundPositionX: "90%", y: -10 }}
       transition={{ duration: 0.3 }}
     >
       {children}
-    </m.button>
+    </motion.button>
   );
 };
 
@@ -111,7 +110,7 @@ export const LoginButton = ({
     rest: { scaleY: 0, scaleX: 1 },
   };
   return (
-    <m.button
+    <motion.button
       className={`${widthClass} overflow-clip text-prim bg-bgsec relative rounded-full`}
       whileHover="hover"
       variants={buttonVariant}
@@ -124,6 +123,6 @@ export const LoginButton = ({
         variants={bgVariant}
         transition={{ duration: 0.3 }}
       ></motion.div>
-    </m.button>
+    </motion.button>
   );
 };
