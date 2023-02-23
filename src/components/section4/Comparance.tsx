@@ -15,14 +15,7 @@ export const Comparance = ({ width }: { width: number }) => {
   const x = useMotionValue(0.5 * width);
   const xSmooth = useSpring(x, { damping: 50, stiffness: 400 });
   const newWidth = useTransform(xSmooth, [0, width], ["0%", "100%"]);
-  const dragLimit = () => {
-    const prev = xSmooth.get();
-    if (prev > width * 0.85) {
-      xSmooth.set(width * 0.85);
-    } else if (prev < width * 0.15) {
-      xSmooth.set(width * 0.15);
-    }
-  };
+
   const playSync = () => {
     if (ref1.current && ref2.current) {
       if (
@@ -38,13 +31,11 @@ export const Comparance = ({ width }: { width: number }) => {
     }
   };
 
-  useEffect(dragLimit, [width]);
-
   const render = useInView(ref, { once: true });
   const play = useInView(ref);
 
   return (
-    <div style={!render ? { height: width / 2 } : {}}>
+    <div ref={ref} style={!render ? { height: width / 2 } : {}}>
       <motion.div
         style={{ x: xSmooth }}
         className={`z-10 top-0 absolute bg-bgprim h-full w-[1px]`}
@@ -54,7 +45,7 @@ export const Comparance = ({ width }: { width: number }) => {
         whileInView={{ scale: 1, transition: { delay: 0.3 } }}
         viewport={{ once: true }}
         drag="x"
-        onDragTransitionEnd={dragLimit}
+        dragConstraints={ref}
         style={{
           x: xSmooth,
         }}
@@ -89,7 +80,6 @@ export const Comparance = ({ width }: { width: number }) => {
         </svg>
       </motion.button>
       <motion.div
-        ref={ref}
         style={{ width: newWidth }}
         className="absolute h-full bg-bgprim w-[50%] overflow-clip"
       >

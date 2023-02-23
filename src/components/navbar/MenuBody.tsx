@@ -6,7 +6,7 @@ export const MenuBody = ({ open }: { open: boolean }) => {
     <AnimatePresence>
       {open && (
         <motion.div
-          className="fixed w-full h-full lg:hidden"
+          className="fixed w-full h-full"
           initial={{ scale: 1, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           exit={{ opacity: 0, scale: 1.2, transition: { duration: 0.3 } }}

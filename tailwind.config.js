@@ -11,6 +11,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        bgsec5: "#2c2c4f",
         prim: "#e60f47",
         sec: "#ff5800",
         txprim: "#9b9bc9",
@@ -26,7 +27,7 @@ module.exports = {
       boxShadow: {
         // "3xl": "0 11px 41px 0 rgba(0, 0, 0, 1)",
         // xxl: "0 -1px 21px 0 rgba(0, 0, 0, 1)",
-        gold: "0 25px 50px -12px rgba(196, 2, 53, .5)",
+        gold: "0 25px 50px -12px rgba(196, 2, 53, .3)",
       },
     },
   },

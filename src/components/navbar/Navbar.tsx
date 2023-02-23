@@ -1,5 +1,6 @@
 import { motion, useScroll } from "framer-motion";
 import React, { useEffect, useState } from "react";
+import NoSSR from "../NoSSR";
 import { Logo } from "./Logo";
 import { Menu } from "./Menu";
 import { MenuBody } from "./MenuBody";
@@ -50,7 +51,7 @@ export const Navbar = ({
     },
   };
   return (
-    <div className="w-[100vw] flex flex-col z-50 top-0 fixed overflow-x-clip">
+    <div className="w-[100vw] h-0 flex flex-col z-50 top-0 fixed overflow-x-clip">
       <motion.div
         className="relative z-50"
         variants={container}
@@ -67,7 +68,7 @@ export const Navbar = ({
         transition={{ type: "tween" }}
       >
         <motion.div
-          className="absolute w-[200vw] -bottom-[2px] z-10 h-[2px] nav-background"
+          className="absolute w-[200vw] blur- -bottom-[2px] z-10 h-[2px] nav-background"
           whileInView={{
             x: ["-10vw", "-100vw", "-50vw", "-100vw", "-10vw"],
           }}
@@ -81,10 +82,10 @@ export const Navbar = ({
         ></motion.div>
         <div className={navbar}>
           <Logo />
-          <Menu setOpen={setOpen} open={open} />
+          <Menu setOpen={setOpen} open={open} isDesktop={isDesktop} />
         </div>
       </motion.div>
-      <MenuBody open={open} />
+      <NoSSR> {!isDesktop && <MenuBody open={open} />}</NoSSR>
     </div>
   );
 };

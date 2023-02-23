@@ -9,7 +9,7 @@ export const MainVid = () => {
   const [windowH, setWindowH] = useState(0);
   const { scrollYProgress } = useScroll({
     target: secRef,
-    offset: ["start center", "end center"],
+    offset: ["start center", "end end"],
   });
   const widthTran = useTransform(scrollYProgress, [0, 1], [800, 1500]);
   const width = useSpring(widthTran, { stiffness: 1000, damping: 100 });

@@ -10,7 +10,7 @@
 }
 
 .nav-background {
-  background: linear-gradient(0.35turn, #c40235 45%, #080810 50%, #ff5800 55%);
+  background: linear-gradient(0.35turn, #c40235 35%, #ff5800 45%, #080810 50%, #ff5800 55%, #c40235);
 }
 
 .sub-bg {
@@ -75,4 +75,16 @@ a,button{
 }
 a:focus, button:focus{
   outline: none !important;
+}
+
+.horzbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.horzbar {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
