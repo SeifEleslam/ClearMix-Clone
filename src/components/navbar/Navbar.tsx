@@ -82,7 +82,7 @@ export const Navbar = ({
         ></motion.div>
         <div className={navbar}>
           <Logo />
-          <Menu setOpen={setOpen} open={open} isDesktop={isDesktop} />
+          <Menu setOpen={setOpen} open={open} />
         </div>
       </motion.div>
       <NoSSR> {!isDesktop && <MenuBody open={open} />}</NoSSR>
