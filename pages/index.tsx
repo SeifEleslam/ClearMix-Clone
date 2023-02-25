@@ -14,7 +14,7 @@ export default function Home() {
   const isMobile = useMediaQuery({ maxWidth: 768 });
 
   return (
-    <div className="overflow-clip">
+    <div id="body" className="overflow-clip">
       <NoSSR>{!isMobile && <BehindBg />}</NoSSR>
       <main>
         <Navbar isDesktop={isDesktop} isMobile={isMobile} />

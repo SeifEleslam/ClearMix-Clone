@@ -1,10 +1,12 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { HoverCursor } from "../Hover";
 import { SchButton } from "../navbar/MenuBody";
 import ScrollContainer from "react-indiana-drag-scroll";
 
 export const Section5 = () => {
+  const drag = useRef(false);
+  const ready = useRef(true);
   const [hover, setHover] = useState(false);
   const [icon, setIcon] = useState<"play" | "nav">("nav");
   return (
@@ -12,24 +14,52 @@ export const Section5 = () => {
       <div className="text-bgprim md:text-5xl xl:text-8xl lg:text-7xl text-4xl mb-4">
         Create excelent looking...
       </div>
-      <ScrollContainer
-        // draggingClassName={"cursor-none"}
-        className="flex w-full my-12 py-20 horzbar h-full space-x-10 cursor-none overflow-x-scroll"
-        // onMouseLeave={() => setHover(false)}
-        // onMouseEnter={() => setHover(true)}
+      <div
+        onMouseLeave={() => {
+          if (!drag.current) setHover(false);
+          ready.current = true;
+        }}
+        onMouseEnter={() => {
+          setHover(true);
+          ready.current = false;
+        }}
       >
-        <HoverCursor show={hover} newClasses="">
-          <Nav />
-        </HoverCursor>
-        {[...Array(20)].map((val, i) => {
-          return (
-            <div key={i} className="h-[20rem] border-white border-[2px]">
-              <div className="w-[20rem]"></div>
-            </div>
-          );
-        })}
-        {/* <div className="flex w-full py-20 horzbar h-full space-x-10 overflow-x-auto"></div> */}
-      </ScrollContainer>
+        <ScrollContainer
+          onStartScroll={() => {
+            drag.current = true;
+            const body = document.getElementById("body");
+            if (body) body.classList.add("cursor-none");
+          }}
+          onEndScroll={() => {
+            drag.current = false;
+            const body = document.getElementById("body");
+            if (body) body.classList.remove("cursor-none");
+            if (ready.current && hover) setHover(false);
+          }}
+          draggingClassName="cursor-none"
+          hideScrollbars={true}
+          vertical={false}
+          className="flex w-full my-12 py-20 hidden-cursor h-full space-x-10 cursor-none overflow-x-scroll"
+        >
+          <HoverCursor show={hover} newClasses="">
+            {icon === "play" ? <Play /> : <Nav />}
+          </HoverCursor>
+          {[...Array(20)].map((val, i) => {
+            return (
+              <div
+                key={i}
+                onMouseEnter={() => setIcon("play")}
+                onMouseLeave={() => setIcon("nav")}
+                className="h-[20rem] rounded-2xl border-bgprim border-[2px]"
+              >
+                <div className="w-[20rem]"></div>
+              </div>
+            );
+          })}
+          {/* <div className="flex w-full py-20 horzbar h-full space-x-10 overflow-x-auto"></div> */}
+        </ScrollContainer>
+      </div>
+
       {/* <div className="h-[40rem]  w-full bg-black my-12  "></div> */}
       <div>
         <SchButton widthClass={"w-[20rem] max-w-full"}>
@@ -43,23 +73,13 @@ export const Section5 = () => {
 const Play = () => {
   return (
     <svg
-      className="w-full text-bgprim"
-      version="1.1"
-      id="Capa_1"
+      className="w-full h-full text-bgprim"
       xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 60 60"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
     >
-      <g>
-        <path
-          d="M45.563,29.174l-22-15c-0.307-0.208-0.703-0.231-1.031-0.058C22.205,14.289,22,14.629,22,15v30
-		c0,0.371,0.205,0.711,0.533,0.884C22.679,45.962,22.84,46,23,46c0.197,0,0.394-0.059,0.563-0.174l22-15
-		C45.836,30.64,46,30.331,46,30S45.836,29.36,45.563,29.174z M24,43.107V16.893L43.225,30L24,43.107z"
-        />
-        <path
-          d="M30,0C13.458,0,0,13.458,0,30s13.458,30,30,30s30-13.458,30-30S46.542,0,30,0z M30,58C14.561,58,2,45.439,2,30
-		S14.561,2,30,2s28,12.561,28,28S45.439,58,30,58z"
-        />
-      </g>
+      <path d="M9 16.985v-10.021l9 5.157-9 4.864zm4-14.98c5.046.504 9 4.782 9 9.97 0 1.467-.324 2.856-.892 4.113l1.738 1.006c.732-1.555 1.154-3.285 1.154-5.119 0-6.303-4.842-11.464-11-11.975v2.005zm-10.109 14.082c-.568-1.257-.891-2.646-.891-4.112 0-5.188 3.954-9.466 9-9.97v-2.005c-6.158.511-11 5.672-11 11.975 0 1.833.421 3.563 1.153 5.118l1.738-1.006zm17.213 1.734c-1.817 2.523-4.769 4.175-8.104 4.175s-6.288-1.651-8.105-4.176l-1.746 1.011c2.167 3.122 5.768 5.169 9.851 5.169 4.082 0 7.683-2.047 9.851-5.168l-1.747-1.011z" />
     </svg>
   );
 };
@@ -67,13 +87,13 @@ const Play = () => {
 const Nav = () => {
   return (
     <svg
-      className="text-bgsec5 "
-      fill="#ffffff"
-      version="1.1"
-      viewBox="0 0 700 700"
+      className="w-full h-full text-bgprim"
       xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
     >
-      <path d="m486.4 423.02c-0.14063 2.1094 140.73-136.37 143.6-140.08-0.63281-2.0508-147.14-146.71-147.13-145.98 0.60938 2.4375-5.2188 120.6 3.5273 286.05zm126.88-139.27c-2.5977 1.7852-106.46 92.668-108.69 94.113-0.83984-0.62891-1.8633-194.84-2.5078-195.83-0.21094 2.6562 111.2 101.72 111.2 101.72zm-399.68-146.77c0.14063-2.1055-140.74 136.37-143.6 140.08 0.63281 2.0508 147.15 146.72 147.13 145.98-0.60938-2.4414 5.2266-120.6-3.5273-286.06zm-126.88 139.27c2.5938-1.7812 106.45-92.664 108.68-94.113 0.83984 0.62891 1.8633 194.84 2.5078 195.83 0.21484-2.6562-111.19-101.72-111.19-101.72zm260.74 99.934 1.7578-9.1523c53.004-1.2656 98.09-34.293 97.598-87.488-1.625-52.992-42.5-97.898-97.965-95.648-55.215-0.19141-99.16 41.281-95.457 97.699-2.2109 55.203 40.203 93.156 94.066 94.59zm0.73828-172.53-0.078125-6.8984c40.168 1.2773 76.754 45.051 77.527 84.262-2.1602 41.316-36.586 72.32-76.328 75.273-40.602-0.64844-77.117-35.676-75.836-73.664-1.4453-45.867 34.219-75.344 74.715-78.973z" />
+      <path d="M13.807 8.771l4.768-3.302-1.415-2.042c-.644-.928-1.678-1.427-2.727-1.427-.651 0-1.309.191-1.884.59l-2.045 1.415 3.303 4.766zm-5.184 5.609l3.302 4.767c1.286 1.857 3.353 2.853 5.452 2.853 3.628 0 6.623-2.944 6.623-6.634 0-1.302-.383-2.617-1.181-3.768l-3.301-4.765-10.895 7.547zm.52-9.431l-2.04 1.416c-1.506 1.042-1.881 3.106-.838 4.61l1.413 2.043 4.768-3.302-3.303-4.767zm-1.646 5.171c-.57-.823-.369-1.948.461-2.522l.807-.56 1.593 2.299-2.3 1.593-.561-.81zm-3.321-2.231l-2.499-1.74.62-.891 2.271 1.582c-.169.332-.3.681-.392 1.049zm.702 4.006l-2.299 1.615-.624-.888 2.414-1.699c.135.338.299.665.509.972zm-.778-1.906h-3.1v-1.085h3.029c-.013.366.005.729.071 1.085z" />
     </svg>
   );
 };

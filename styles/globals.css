@@ -88,3 +88,7 @@ a:focus, button:focus{
   scrollbar-width: none;
   /* Firefox */
 }
+
+.hidden-cursor{
+  cursor: none !important;
+}
