@@ -44,9 +44,7 @@ export const Section5 = () => {
         }}
         onTouchEnd={(e) => {
           e.preventDefault();
-        }}
-        onTouchStart={(e) => {
-          e.preventDefault();
+          if (hover) setHover(false);
         }}
       >
         <HoverCursor
