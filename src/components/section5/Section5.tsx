@@ -5,6 +5,8 @@ import { SchButton } from "../navbar/MenuBody";
 import ScrollContainer from "react-indiana-drag-scroll";
 
 export const Section5 = () => {
+  const ref =
+    useRef<HTMLDivElement>() as React.MutableRefObject<HTMLInputElement>;
   const drag = useRef(false);
   const ready = useRef(true);
   const [hover, setHover] = useState(false);
@@ -25,6 +27,7 @@ export const Section5 = () => {
         }}
       >
         <ScrollContainer
+          innerRef={ref}
           onStartScroll={() => {
             drag.current = true;
             const body = document.getElementById("body");
@@ -36,31 +39,28 @@ export const Section5 = () => {
             if (body) body.classList.remove("cursor-none");
             if (ready.current && hover) setHover(false);
           }}
-          draggingClassName="cursor-none"
           hideScrollbars={true}
           vertical={false}
-          className="flex w-full my-12 py-20 hidden-cursor h-full space-x-10 cursor-none overflow-x-scroll"
+          className="flex w-full duration-1000 my-12 px-[20rem] py-20 hidden-cursor h-full space-x-10"
         >
-          <HoverCursor show={hover} newClasses="">
+          <HoverCursor show={hover} newClasses=" log-bg p-3">
             {icon === "play" ? <Play /> : <Nav />}
           </HoverCursor>
-          {[...Array(20)].map((val, i) => {
+          {[...Array(5)].map((val, i) => {
             return (
               <div
                 key={i}
                 onMouseEnter={() => setIcon("play")}
                 onMouseLeave={() => setIcon("nav")}
-                className="h-[20rem] rounded-2xl border-bgprim border-[2px]"
+                className=" flex-none pl-10 hidden-cursor snap-start "
               >
-                <div className="w-[20rem]"></div>
+                <div className="w-[20rem] h-[20rem] hidden-cursor rounded-2xl border-bgprim border-[2px]"></div>
               </div>
             );
           })}
-          {/* <div className="flex w-full py-20 horzbar h-full space-x-10 overflow-x-auto"></div> */}
         </ScrollContainer>
       </div>
 
-      {/* <div className="h-[40rem]  w-full bg-black my-12  "></div> */}
       <div>
         <SchButton widthClass={"w-[20rem] max-w-full"}>
           SCHEDULE A CALL

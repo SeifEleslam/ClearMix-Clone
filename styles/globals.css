@@ -89,6 +89,14 @@ a:focus, button:focus{
   /* Firefox */
 }
 
+.snap{
+  scroll-snap-type: x mandatory;
+}
+
 .hidden-cursor{
   cursor: none !important;
+}
+
+html {
+  scroll-behavior: smooth;
 }
