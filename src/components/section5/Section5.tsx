@@ -54,24 +54,23 @@ export const Section5 = () => {
         </HoverCursor>
         {[img1, img2, img3, img4, img5, img6].map((val, i) => {
           return (
-            <div
-              key={i}
-              className="w-[20rem] h-[20rem] keen-slider__slide hidden-cursor"
-            >
-              <Image
-                fill
-                alt=""
-                src={val}
-                onMouseEnter={() => {
-                  play.current = true;
-                  if (!drag.current) setIcon("play");
-                }}
-                onMouseLeave={() => {
-                  play.current = false;
-                  setIcon("nav");
-                }}
-                className="hidden-cursor rounded-2xl border-bgprim border-[2px]"
-              ></Image>
+            <div key={i} className="keen-slider__slide hidden-cursor">
+              <div className="w-[20rem] h-[20rem] ">
+                <Image
+                  fill
+                  alt=""
+                  src={val}
+                  onMouseEnter={() => {
+                    play.current = true;
+                    if (!drag.current) setIcon("play");
+                  }}
+                  onMouseLeave={() => {
+                    play.current = false;
+                    setIcon("nav");
+                  }}
+                  className="hidden-cursor rounded-2xl border-bgprim border-[2px] "
+                ></Image>
+              </div>
             </div>
           );
         })}
