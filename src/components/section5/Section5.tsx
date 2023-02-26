@@ -2,13 +2,23 @@ import { motion } from "framer-motion";
 import { useRef, useState } from "react";
 import { HoverCursor } from "../Hover";
 import { SchButton } from "../navbar/MenuBody";
-import ScrollContainer from "react-indiana-drag-scroll";
+import { useKeenSlider } from "keen-slider/react";
+import "keen-slider/keen-slider.min.css";
 
 export const Section5 = () => {
-  const ref =
-    useRef<HTMLDivElement>() as React.MutableRefObject<HTMLInputElement>;
   const drag = useRef(false);
-  const ready = useRef(true);
+  const play = useRef(false);
+  const [ref] = useKeenSlider<HTMLDivElement>({
+    dragged: () => {
+      drag.current = true;
+      setIcon("nav");
+    },
+    dragEnded: () => {
+      drag.current = false;
+      if (play) setIcon("play");
+    },
+    slides: { perView: "auto", spacing: 62, origin: 0.2 },
+  });
   const [hover, setHover] = useState(false);
   const [icon, setIcon] = useState<"play" | "nav">("nav");
   return (
@@ -17,48 +27,35 @@ export const Section5 = () => {
         Create excelent looking...
       </div>
       <div
+        className="flex py-24 hidden-cursor"
+        ref={ref}
         onMouseLeave={() => {
-          if (!drag.current) setHover(false);
-          ready.current = true;
+          setHover(false);
         }}
         onMouseEnter={() => {
           setHover(true);
-          ready.current = false;
         }}
       >
-        <ScrollContainer
-          innerRef={ref}
-          onStartScroll={() => {
-            drag.current = true;
-            const body = document.getElementById("body");
-            if (body) body.classList.add("cursor-none");
-          }}
-          onEndScroll={() => {
-            drag.current = false;
-            const body = document.getElementById("body");
-            if (body) body.classList.remove("cursor-none");
-            if (ready.current && hover) setHover(false);
-          }}
-          hideScrollbars={true}
-          vertical={false}
-          className="flex w-full duration-1000 my-12 px-[20rem] py-20 hidden-cursor h-full space-x-10"
-        >
-          <HoverCursor show={hover} newClasses=" log-bg p-3">
-            {icon === "play" ? <Play /> : <Nav />}
-          </HoverCursor>
-          {[...Array(5)].map((val, i) => {
-            return (
+        <HoverCursor show={hover} newClasses=" log-bg p-3">
+          {icon === "play" ? <Play /> : <Nav />}
+        </HoverCursor>
+        {[...Array(5)].map((val, i) => {
+          return (
+            <div key={i} className="keen-slider__slide hidden-cursor">
               <div
-                key={i}
-                onMouseEnter={() => setIcon("play")}
-                onMouseLeave={() => setIcon("nav")}
-                className=" flex-none pl-10 hidden-cursor snap-start "
-              >
-                <div className="w-[20rem] h-[20rem] hidden-cursor rounded-2xl border-bgprim border-[2px]"></div>
-              </div>
-            );
-          })}
-        </ScrollContainer>
+                onMouseEnter={() => {
+                  play.current = true;
+                  if (!drag.current) setIcon("play");
+                }}
+                onMouseLeave={() => {
+                  play.current = false;
+                  setIcon("nav");
+                }}
+                className="w-[20rem] h-[20rem] hidden-cursor rounded-2xl border-bgprim border-[2px]"
+              ></div>
+            </div>
+          );
+        })}
       </div>
 
       <div>
