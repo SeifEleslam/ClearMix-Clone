@@ -45,6 +45,9 @@ export const Section5 = () => {
         onTouchEnd={(e) => {
           e.preventDefault();
         }}
+        onTouchStart={(e) => {
+          e.preventDefault();
+        }}
       >
         <HoverCursor
           show={hover}
