@@ -13,6 +13,7 @@ import img6 from "../../assets/images/img6.jpg";
 import Image from "next/image";
 
 export const Section5 = () => {
+  const touch = useRef(false);
   const drag = useRef(false);
   const play = useRef(false);
   const [ref] = useKeenSlider<HTMLDivElement>({
@@ -40,11 +41,16 @@ export const Section5 = () => {
           setHover(false);
         }}
         onMouseEnter={() => {
-          setHover(true);
+          if (!touch.current) setHover(true);
+          touch.current = false;
         }}
         onTouchEnd={(e) => {
           e.preventDefault();
-          if (hover) setHover(false);
+          // if (hover) setHover(false);
+        }}
+        onTouchStart={(e) => {
+          e.preventDefault;
+          touch.current = true;
         }}
       >
         <HoverCursor
@@ -59,6 +65,7 @@ export const Section5 = () => {
               <div className="w-[20rem] h-[20rem] ">
                 <Image
                   fill
+                  priority={true}
                   alt=""
                   src={val}
                   onMouseEnter={() => {
