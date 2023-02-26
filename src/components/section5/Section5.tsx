@@ -25,7 +25,7 @@ export const Section5 = () => {
       drag.current = false;
       if (play.current) setIcon("play");
     },
-    slides: { perView: "auto", spacing: 62, origin: 0.2 },
+    slides: { perView: "auto", spacing: 62, origin: 0.1 },
   });
   const [hover, setHover] = useState(false);
   const [icon, setIcon] = useState<"play" | "nav">("nav");
@@ -62,7 +62,7 @@ export const Section5 = () => {
         {[img1, img2, img3, img4, img5, img6].map((val, i) => {
           return (
             <div key={i} className="keen-slider__slide hidden-cursor">
-              <div className="w-[20rem] h-[20rem] ">
+              <div className="w-[20rem] max-w-[80vw] h-[20rem] max-h-[80vw] ">
                 <Image
                   fill
                   priority={true}

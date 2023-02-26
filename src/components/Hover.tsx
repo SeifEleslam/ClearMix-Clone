@@ -11,8 +11,8 @@ export const HoverCursor = ({
   newClasses: string;
 }) => {
   const ref = useRef(null);
-  const x = useSpring(0);
-  const y = useSpring(0);
+  const x = useSpring(0, { stiffness: 1000, damping: 100 });
+  const y = useSpring(0, { stiffness: 1000, damping: 100 });
 
   function handleMouse(event: any) {
     const position = getRelativeCoordinates(event, ref.current);
