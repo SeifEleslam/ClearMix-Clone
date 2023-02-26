@@ -8,6 +8,7 @@ import { useMediaQuery } from "react-responsive";
 import { Section4 } from "@/src/components/section4/section4";
 import NoSSR from "../src/components/NoSSR";
 import { Section5 } from "@/src/components/section5/Section5";
+import { Section6 } from "@/src/components/section6/section6";
 
 export default function Home() {
   const isDesktop = useMediaQuery({ minWidth: 1024 });
@@ -24,6 +25,7 @@ export default function Home() {
           <Section3 />
           <Section4 />
           <Section5 />
+          <Section6 />
         </div>
       </main>
     </div>

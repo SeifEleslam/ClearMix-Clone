@@ -11,7 +11,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        bgsec5: "#2c2c4f",
+        bgsec5: "#111a44",
         prim: "#e60f47",
         sec: "#ff5800",
         txprim: "#9b9bc9",

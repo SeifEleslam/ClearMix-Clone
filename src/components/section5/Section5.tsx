@@ -31,11 +31,11 @@ export const Section5 = () => {
   const [icon, setIcon] = useState<"play" | "nav">("nav");
   return (
     <div className="relative  text-center w-full my-24 py-12 z-20 bg-bgsec5">
-      <div className="text-bgprim md:text-5xl xl:text-8xl lg:text-7xl text-4xl mb-4">
+      <div className="textgrd md:text-5xl xl:text-8xl lg:text-7xl text-4xl mb-4">
         Create excelent looking...
       </div>
       <div
-        className="flex py-24 hidden-cursor"
+        className="flex my-24 h-[30rem] hidden-cursor"
         ref={ref}
         onMouseLeave={() => {
           setHover(false);
@@ -61,7 +61,12 @@ export const Section5 = () => {
         </HoverCursor>
         {[img1, img2, img3, img4, img5, img6].map((val, i) => {
           return (
-            <div key={i} className="keen-slider__slide hidden-cursor">
+            <div
+              key={i}
+              className={`keen-slider__slide h-[20rem] hidden-cursor ${
+                i % 2 === 0 ? "self-start" : "self-end"
+              }`}
+            >
               <div className="w-[20rem] max-w-[80vw] h-[20rem] max-h-[80vw] ">
                 <Image
                   fill

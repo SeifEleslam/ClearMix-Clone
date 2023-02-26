@@ -104,7 +104,7 @@ export const LoginButton = ({
   children: React.ReactNode;
   colorClass?: string;
 }) => {
-  const buttonVariant = { hover: { color: "#fff" } };
+  const buttonVariant = { hover: { color: "#080810" } };
   const bgVariant = {
     hover: { scaleY: 4, scaleX: 1.5 },
     rest: { scaleY: 0, scaleX: 1 },
