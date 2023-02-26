@@ -1,10 +1,13 @@
 import { useScroll, useTransform, useSpring, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import useMeasure from "react-use-measure";
+import { HoverCursor } from "../Hover";
+import { Play } from "../section5/Section5";
 import MutedPlayer from "./MutedPlayer";
 
 export const MainVid = () => {
   const [ref, { height }] = useMeasure();
+  const [hover, setHover] = useState(false);
   const secRef = useRef(null);
   const [windowH, setWindowH] = useState(0);
   const { scrollYProgress } = useScroll({
@@ -31,6 +34,9 @@ export const MainVid = () => {
       ref={secRef}
       className="md:block hidden h-[70vh] min-h-[70vw] mt-20 mx-6"
     >
+      <HoverCursor show={hover} newClasses={` log-bg p-3`}>
+        <Play />
+      </HoverCursor>
       <motion.div
         ref={ref}
         style={{ top: (windowH - height) / 2 }}
@@ -41,12 +47,21 @@ export const MainVid = () => {
           style={{ width }}
         >
           <motion.div
-            className="overflow-clip shadow-gold relative"
+            className="overflow-clip shadow-gold hidden-cursor relative "
             style={{ borderRadius }}
+            onMouseLeave={() => {
+              setHover(false);
+            }}
+            onMouseEnter={() => {
+              setHover(true);
+            }}
+            onTouchEnd={(e) => {
+              e.preventDefault();
+            }}
           >
             <MutedPlayer
               url="https://stream.mux.com/bx5uui2jjvo3rWFasVfiDNheeQ4mMATgKXOZWOZXMf4.m3u8?aspect=0.5625"
-              newClasses=""
+              newClasses=" hidden-cursor"
             />
           </motion.div>
         </motion.div>

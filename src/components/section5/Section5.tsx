@@ -4,6 +4,13 @@ import { HoverCursor } from "../Hover";
 import { SchButton } from "../navbar/MenuBody";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
+import img1 from "../../assets/images/img1.jpg";
+import img2 from "../../assets/images/img2.jpg";
+import img3 from "../../assets/images/img3.jpg";
+import img4 from "../../assets/images/img4.jpg";
+import img5 from "../../assets/images/img5.jpg";
+import img6 from "../../assets/images/img6.jpg";
+import Image from "next/image";
 
 export const Section5 = () => {
   const drag = useRef(false);
@@ -15,7 +22,7 @@ export const Section5 = () => {
     },
     dragEnded: () => {
       drag.current = false;
-      if (play) setIcon("play");
+      if (play.current) setIcon("play");
     },
     slides: { perView: "auto", spacing: 62, origin: 0.2 },
   });
@@ -35,14 +42,26 @@ export const Section5 = () => {
         onMouseEnter={() => {
           setHover(true);
         }}
+        onTouchEnd={(e) => {
+          e.preventDefault();
+        }}
       >
-        <HoverCursor show={hover} newClasses=" log-bg p-3">
+        <HoverCursor
+          show={hover}
+          newClasses={` ${icon === "play" ? "bg-prim" : ""} p-3`}
+        >
           {icon === "play" ? <Play /> : <Nav />}
         </HoverCursor>
-        {[...Array(5)].map((val, i) => {
+        {[img1, img2, img3, img4, img5, img6].map((val, i) => {
           return (
-            <div key={i} className="keen-slider__slide hidden-cursor">
-              <div
+            <div
+              key={i}
+              className="w-[20rem] h-[20rem] keen-slider__slide hidden-cursor"
+            >
+              <Image
+                fill
+                alt=""
+                src={val}
                 onMouseEnter={() => {
                   play.current = true;
                   if (!drag.current) setIcon("play");
@@ -51,8 +70,8 @@ export const Section5 = () => {
                   play.current = false;
                   setIcon("nav");
                 }}
-                className="w-[20rem] h-[20rem] hidden-cursor rounded-2xl border-bgprim border-[2px]"
-              ></div>
+                className="hidden-cursor rounded-2xl border-bgprim border-[2px]"
+              ></Image>
             </div>
           );
         })}
@@ -67,7 +86,7 @@ export const Section5 = () => {
   );
 };
 
-const Play = () => {
+export const Play = () => {
   return (
     <svg
       className="w-full h-full text-bgprim"
