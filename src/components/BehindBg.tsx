@@ -2,14 +2,11 @@ import { motion, useMotionValue, useTransform } from "framer-motion";
 import React, { useEffect } from "react";
 
 export const BehindBg = () => {
-  // const mouseX = useMotionValue(200);
   const mouseY = useMotionValue(200);
 
-  // const rotateX = useTransform(mouseX, [0, 10000], [0, 2000]);
   const rotateY = useTransform(mouseY, [0, 100000], [0, 20000]);
 
   function handleMouse(event: any) {
-    // mouseX.set(event.pageX);
     mouseY.set(event.pageX);
   }
   useEffect(() => {

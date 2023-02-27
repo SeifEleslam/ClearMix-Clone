@@ -1,4 +1,4 @@
-import { AnimatePresence, motion, useSpring } from "framer-motion";
+import { AnimatePresence, motion, useMotionValue } from "framer-motion";
 import { useLayoutEffect, useRef } from "react";
 
 export const HoverCursor = ({
@@ -11,8 +11,8 @@ export const HoverCursor = ({
   newClasses: string;
 }) => {
   const ref = useRef(null);
-  const x = useSpring(0, { stiffness: 1000, damping: 100 });
-  const y = useSpring(0, { stiffness: 1000, damping: 100 });
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
 
   function handleMouse(event: any) {
     const position = getRelativeCoordinates(event, ref.current);
