@@ -24,7 +24,7 @@ export const Section5 = () => {
       drag.current = false;
       if (play.current) setIcon("play");
     },
-    slides: { perView: "auto", spacing: 62, origin: 0.1 },
+    slides: { perView: "auto", spacing: 62, origin: "center" },
   });
   const [hover, setHover] = useState(false);
   const [icon, setIcon] = useState<"play" | "nav">("nav");
@@ -34,7 +34,7 @@ export const Section5 = () => {
         Create excelent looking...
       </div>
       <div
-        className="flex my-24 py-12 h-[35rem] hidden-cursor"
+        className="keen-slider flex my-24 py-12 h-[35rem] hidden-cursor"
         ref={ref}
         onMouseLeave={() => {
           setHover(false);
@@ -65,24 +65,28 @@ export const Section5 = () => {
               className={`keen-slider__slide h-[20rem] hidden-cursor ${
                 i % 2 === 0 ? "self-start" : "self-end"
               }`}
+              style={{
+                maxWidth: "20rem",
+                minWidth: "20rem",
+                maxHeight: "20rem",
+                minHeight: "20rem",
+              }}
             >
-              <div className="w-[20rem] max-w-[80vw] h-[20rem] max-h-[80vw] ">
-                <Image
-                  fill
-                  alt=""
-                  sizes="(max-width: 20rem) 80vw"
-                  src={val}
-                  onMouseEnter={() => {
-                    play.current = true;
-                    if (!drag.current) setIcon("play");
-                  }}
-                  onMouseLeave={() => {
-                    play.current = false;
-                    setIcon("nav");
-                  }}
-                  className="hidden-cursor object-cover rounded-2xl border-bgprim border-[2px] "
-                ></Image>
-              </div>
+              <Image
+                fill
+                alt=""
+                sizes="(max-width: 20rem) 80vw"
+                src={val}
+                onMouseEnter={() => {
+                  play.current = true;
+                  if (!drag.current) setIcon("play");
+                }}
+                onMouseLeave={() => {
+                  play.current = false;
+                  setIcon("nav");
+                }}
+                className="hidden-cursor object-cover rounded-2xl border-bgprim border-[2px] "
+              ></Image>
             </div>
           );
         })}
