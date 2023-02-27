@@ -37,7 +37,7 @@ export const Section4 = () => {
       </motion.div>
       <div
         ref={widthRef}
-        className="relative shadow-gold max-w-[60rem] mx-auto h-fit overflow-clip rounded-2xl"
+        className="relative shadow-gold max-w-[60rem] mx-auto h-fit overflow-clip bg-bgprim rounded-2xl"
       >
         {width && width !== 0 && <Comparance width={width} />}
       </div>

@@ -62,6 +62,7 @@ export const MainVid = () => {
             <MutedPlayer
               url="https://stream.mux.com/bx5uui2jjvo3rWFasVfiDNheeQ4mMATgKXOZWOZXMf4.m3u8?aspect=0.5625"
               newClasses=" hidden-cursor"
+              aspects={0.5625}
             />
           </motion.div>
         </motion.div>
@@ -79,6 +80,7 @@ export const MainVidMob = () => {
             <MutedPlayer
               url="https://stream.mux.com/bx5uui2jjvo3rWFasVfiDNheeQ4mMATgKXOZWOZXMf4.m3u8?aspect=0.5625"
               newClasses=""
+              aspects={0.5625}
             />
           </div>
         </div>

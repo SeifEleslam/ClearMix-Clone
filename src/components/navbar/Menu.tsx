@@ -23,6 +23,7 @@ export const Menu = ({ open, setOpen }: { open: boolean; setOpen: any }) => {
           setOpen(!open);
         }}
         id="menu-icon"
+        name="menu-icon"
       ></button>
       <div className="hidden lg:block flex ">
         {["Solutions", "Pricing", "Blog"].map((item, i) => {

@@ -10,11 +10,13 @@ export default function MutedPlayer({
   newClasses,
   style,
   variants,
+  aspects,
 }: {
   url: string;
   newClasses: string;
   style?: any;
   variants?: any;
+  aspects: number;
 }) {
   const ref = useRef(null);
   const [view, setView] = useState(false);
@@ -34,7 +36,7 @@ export default function MutedPlayer({
       <div
         ref={widthRef}
         className="w-full"
-        style={!render ? { height: width / 2 } : {}}
+        style={{ height: width * aspects }}
       >
         <div className="absolute w-full h-full top-0 left-0 bg-bgprim/25"></div>
         {render && (

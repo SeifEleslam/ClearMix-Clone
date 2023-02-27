@@ -41,6 +41,7 @@ export const Section1 = ({ isMobile }: { isMobile: boolean }) => {
             style={{ y: ya }}
             newClasses={"hidden md:block rounded-full border-[2px] border-prim"}
             url="https://stream.mux.com/nF0201aC029F021b3OSYuIm5j2WEHJEY2q02CzVWwHlTeKbw.m3u8?aspect=0.5625"
+            aspects={0.5625}
           />
         </div>
         <div className=" md:bottom-1 right-[-7rem] xl:right-[2rem] xl:-bottom-20 w-[28vw] max-w-[28rem] mx-auto absolute hidden md:block border-sec ">
@@ -52,6 +53,7 @@ export const Section1 = ({ isMobile }: { isMobile: boolean }) => {
             }}
             newClasses={"hidden md:block rounded-full border-[2px] border-sec"}
             url="https://stream.mux.com/XF21pO1eUMV00HBXG00miS4e01vDxuwPwQEwKiPLdJR01ZE.m3u8?aspect=1"
+            aspects={0.5625}
           />
         </div>
 

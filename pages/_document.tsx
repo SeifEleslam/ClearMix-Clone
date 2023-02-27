@@ -4,7 +4,10 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        <link rel="shortcut icon" href="/static/favicon.ico" />
+        <meta
+          name="description"
+          content="An attemp to clone a heavy animated design of clearmix website"
+        ></meta>
       </Head>
       <body>
         <Main />

@@ -70,7 +70,6 @@ export const Section5 = () => {
               <div className="w-[20rem] max-w-[80vw] h-[20rem] max-h-[80vw] ">
                 <Image
                   fill
-                  priority={true}
                   alt=""
                   src={val}
                   onMouseEnter={() => {

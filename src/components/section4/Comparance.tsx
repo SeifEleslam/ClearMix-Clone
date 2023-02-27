@@ -35,7 +35,7 @@ export const Comparance = ({ width }: { width: number }) => {
   const play = useInView(ref);
 
   return (
-    <div ref={ref} style={!render ? { height: width / 2 } : {}}>
+    <div ref={ref} style={{ height: width * 0.5625 }}>
       <motion.div
         style={{ x: xSmooth }}
         className={`z-10 top-0 absolute bg-bgprim h-full w-[1px]`}
@@ -49,6 +49,7 @@ export const Comparance = ({ width }: { width: number }) => {
         style={{
           x: xSmooth,
         }}
+        name="draging-icon"
         dragMomentum={false}
         whileTap={{ scale: 0.9, color: "#fff" }}
         className="z-20 cursor-pointer text-txprim translate-x-[300px] md:w-[4.5rem] w-[3rem] md:h-[4.5rem] h-[3rem] md:-left-[2.25rem] -left-[1.5rem] flex justify-center items-center shadow-gold top-0 bottom-0 my-auto absolute bg-bgprim rounded-full "

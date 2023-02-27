@@ -38,15 +38,18 @@ export const Section3 = () => {
         <MutedPlayer
           url="https://stream.mux.com/02tYe00tEaNq01aeFvEI55NphX01vSs02KtcUzD005njLv17Q.m3u8?aspect=0.5625"
           newClasses="relative rounded-2xl h-fit flex-1"
+          aspects={0.5625}
         />
         <div className="flex space-x-2 md:space-x-6 flex-1">
           <MutedPlayer
             url="https://stream.mux.com/4V6V01ieu01hJgOUZI2Ej2EISNs6rAMdbG357GuEyYJAw.m3u8?aspect=0.8"
             newClasses="relative rounded-2xl h-fit flex-1"
+            aspects={0.8}
           />
           <MutedPlayer
             url="https://stream.mux.com/qAEmd802n9bSZuie88BzA8YsCmo9BjeqMkGfLIhypibI.m3u8?aspect=1.2"
             newClasses="relative rounded-2xl h-fit flex-1"
+            aspects={1.2}
           />
         </div>
 
