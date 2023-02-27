@@ -62,7 +62,7 @@ export const Section5 = () => {
           return (
             <div
               key={i}
-              className={`keen-slider__slide h-[20rem] hidden-cursor ${
+              className={`keen-slider__slide h-[20rem] hidden-cursor bg-bgprim rounded-2xl ${
                 i % 2 === 0 ? "self-start" : "self-end"
               }`}
               style={{

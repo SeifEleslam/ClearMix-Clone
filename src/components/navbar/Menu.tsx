@@ -1,11 +1,10 @@
-import React, { useEffect, useLayoutEffect } from "react";
+import React, { useEffect } from "react";
 import lottie from "lottie-web/build/player/lottie_light";
 import menuLogo from "../../assets/svgs/menu.json";
 import { LoginButton } from "./MenuBody";
 
 export const Menu = ({ open, setOpen }: { open: boolean; setOpen: any }) => {
-  useLayoutEffect(() => {
-    if (document.querySelector("#menu-icon")) console.log("true");
+  useEffect(() => {
     lottie.loadAnimation({
       container: document.querySelector("#menu-icon")!,
       animationData: menuLogo,
