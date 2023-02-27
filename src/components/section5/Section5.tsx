@@ -31,11 +31,11 @@ export const Section5 = () => {
   const [icon, setIcon] = useState<"play" | "nav">("nav");
   return (
     <div className="relative  text-center w-full my-24 py-12 z-20 bg-bgsec5">
-      <div className="textgrd md:text-5xl xl:text-8xl lg:text-7xl text-4xl mb-4">
+      <div className="textgrd md:text-5xl xl:text-8xl lg:text-7xl text-4xl">
         Create excelent looking...
       </div>
       <div
-        className="flex my-24 h-[30rem] hidden-cursor"
+        className="flex my-24 py-12 h-[35rem] hidden-cursor"
         ref={ref}
         onMouseLeave={() => {
           setHover(false);
@@ -71,6 +71,7 @@ export const Section5 = () => {
                 <Image
                   fill
                   alt=""
+                  sizes="(max-width: 20rem) 80vw"
                   src={val}
                   onMouseEnter={() => {
                     play.current = true;
@@ -80,7 +81,7 @@ export const Section5 = () => {
                     play.current = false;
                     setIcon("nav");
                   }}
-                  className="hidden-cursor rounded-2xl border-bgprim border-[2px] "
+                  className="hidden-cursor object-cover rounded-2xl border-bgprim border-[2px] "
                 ></Image>
               </div>
             </div>

@@ -44,7 +44,7 @@ export const Section3 = () => {
           <MutedPlayer
             url="https://stream.mux.com/4V6V01ieu01hJgOUZI2Ej2EISNs6rAMdbG357GuEyYJAw.m3u8?aspect=0.8"
             newClasses="relative rounded-2xl h-fit flex-1"
-            aspects={0.8}
+            aspects={0.7}
           />
           <MutedPlayer
             url="https://stream.mux.com/qAEmd802n9bSZuie88BzA8YsCmo9BjeqMkGfLIhypibI.m3u8?aspect=1.2"

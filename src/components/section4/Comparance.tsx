@@ -49,6 +49,7 @@ export const Comparance = ({ width }: { width: number }) => {
         style={{
           x: xSmooth,
         }}
+        aria-label="draging-icon"
         name="draging-icon"
         dragMomentum={false}
         whileTap={{ scale: 0.9, color: "#fff" }}

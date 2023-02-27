@@ -35,7 +35,7 @@
 }
 
 .textgrd {
-  height: 7rem;
+  padding:4px;
   background: -webkit-linear-gradient(0.85turn,
       #e60f47,
       #e60f47,
