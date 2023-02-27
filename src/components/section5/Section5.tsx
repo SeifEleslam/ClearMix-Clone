@@ -4,7 +4,6 @@ import { HoverCursor } from "../Hover";
 import { SchButton } from "../navbar/MenuBody";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
-import img1 from "../../assets/images/img1.jpg";
 import img2 from "../../assets/images/img2.jpg";
 import img3 from "../../assets/images/img3.jpg";
 import img4 from "../../assets/images/img4.jpg";
@@ -59,7 +58,7 @@ export const Section5 = () => {
         >
           {icon === "play" ? <Play /> : <Nav />}
         </HoverCursor>
-        {[img1, img2, img3, img4, img5, img6].map((val, i) => {
+        {[img2, img3, img4, img5, img6].map((val, i) => {
           return (
             <div
               key={i}
