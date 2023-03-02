@@ -9,7 +9,7 @@ export const MenuBody = ({ open }: { open: boolean }) => {
           className="fixed w-full h-full"
           initial={{ scale: 1, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
-          exit={{ opacity: 0, scale: 1.2, transition: { duration: 0.15 } }}
+          exit={{ opacity: 0, scale: 1.2 }}
         >
           <div className="w-full h-full p-2 overflow-scroll">
             <div className="flex relative z-10 flex-col w-full h-full min-h-[500px] ">
@@ -18,9 +18,6 @@ export const MenuBody = ({ open }: { open: boolean }) => {
                 initial={{ opacity: 0 }}
                 animate={{
                   opacity: 1,
-                  transition: {
-                    duration: 0.1,
-                  },
                 }}
               >
                 {["Solutions", "Pricing", "Blog"].map((item, i) => {
@@ -47,7 +44,6 @@ export const MenuBody = ({ open }: { open: boolean }) => {
             className="bg-bgprim absolute left-0 right-0 mx-auto top-0 bottom-0 my-auto z-0 w-24 h-24 rounded-full"
             initial={{ scale: 4 }}
             animate={{ scale: 15 }}
-            transition={{ duration: 0.4, type: "tween" }}
           ></motion.div>
         </motion.div>
       )}
@@ -67,7 +63,7 @@ const Item = ({ children, i }: { children: React.ReactNode; i: number }) => {
       animate={{
         opacity: 1,
         y: 0,
-        transition: { duration: 0.3, delay: 0.2 * (i + 1), type: "tween" },
+        transition: { delay: 0.2 * (i + 1) },
       }}
       exit={{ opacity: 0 }}
     >
@@ -88,7 +84,6 @@ export const SchButton = ({
       className={`${widthClass} schshadow sub-bg p-6 text-xl rounded-full text-txdef`}
       initial={{ backgroundPositionX: "10%", y: 0 }}
       whileHover={{ backgroundPositionX: "90%", y: -10 }}
-      transition={{ duration: 0.3 }}
     >
       {children}
     </motion.button>
@@ -121,7 +116,6 @@ export const LoginButton = ({
           colorClass ? colorClass : "log-bg "
         }`}
         variants={bgVariant}
-        transition={{ duration: 0.3 }}
       ></motion.div>
     </motion.button>
   );
