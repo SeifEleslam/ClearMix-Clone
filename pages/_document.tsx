@@ -7,7 +7,8 @@ export default function Document() {
         <meta
           name="description"
           content="An attemp to clone a heavy animated design of clearmix website"
-        ></meta>
+        />
+        <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
       </Head>
       <body>
         <Main />

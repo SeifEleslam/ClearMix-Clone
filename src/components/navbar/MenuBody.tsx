@@ -9,7 +9,7 @@ export const MenuBody = ({ open }: { open: boolean }) => {
           className="fixed w-full h-full"
           initial={{ scale: 1, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
-          exit={{ opacity: 0, scale: 1.2, transition: { duration: 0.3 } }}
+          exit={{ opacity: 0, scale: 1.2, transition: { duration: 0.15 } }}
         >
           <div className="w-full h-full p-2 overflow-scroll">
             <div className="flex relative z-10 flex-col w-full h-full min-h-[500px] ">

@@ -7,11 +7,12 @@ import MutedPlayer from "./MutedPlayer";
 export const MainVid = () => {
   const [ref, { height }] = useMeasure();
   const [hover, setHover] = useState(false);
+  const [mouseDown, setMouseDown] = useState(false);
   const secRef = useRef(null);
   const [windowH, setWindowH] = useState(0);
   const { scrollYProgress } = useScroll({
     target: secRef,
-    offset: ["start center", "end end"],
+    offset: ["start center", "end center"],
   });
   const widthTran = useTransform(scrollYProgress, [0, 1], [800, 1500]);
   const width = useSpring(widthTran, { stiffness: 1000, damping: 100 });
@@ -34,6 +35,7 @@ export const MainVid = () => {
       className="md:block hidden h-[70vh] min-h-[70vw] mt-20 mx-6"
     >
       <HoverCursor
+        mouseDown={mouseDown}
         state={hover ? "play" : "none"}
         newClasses={` log-bg p-10`}
       />
@@ -57,6 +59,8 @@ export const MainVid = () => {
               if (navigator.maxTouchPoints > 0) return;
               setHover(true);
             }}
+            onMouseDown={() => setMouseDown(true)}
+            onMouseUp={() => setMouseDown(false)}
           >
             <MutedPlayer
               url="https://stream.mux.com/bx5uui2jjvo3rWFasVfiDNheeQ4mMATgKXOZWOZXMf4.m3u8?aspect=0.5625"

@@ -4,9 +4,11 @@ import { useLayoutEffect, useRef } from "react";
 export const HoverCursor = ({
   state,
   newClasses,
+  mouseDown,
 }: {
   state: "none" | "play" | "nav";
   newClasses: string;
+  mouseDown: boolean;
 }) => {
   const ref =
     useRef<HTMLDivElement>() as React.MutableRefObject<HTMLInputElement>;
@@ -30,16 +32,21 @@ export const HoverCursor = ({
           <motion.div
             key={state}
             initial={{ scale: 0.7, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0.7, opacity: 0 }}
-            transition={{ duration: 0.1 }}
-            style={{ x, y }}
-            className={
-              "z-50 pointer-events-none rounded-full absolute w-28 h-28 -m-12 " +
-              newClasses
+            animate={
+              mouseDown ? { scale: 1, opacity: 1 } : { scale: 1.2, opacity: 1 }
             }
+            exit={{ scale: 0.7, opacity: 0 }}
+            transition={{ duration: 0.3, type: "tween" }}
+            style={{ x, y }}
           >
-            {state === "play" ? <Play /> : <Nav />}
+            <div
+              className={
+                "z-50 pointer-events-none rounded-full absolute w-28 h-28 -m-12 " +
+                newClasses
+              }
+            >
+              {state === "play" ? <Play /> : <Nav />}
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

@@ -14,6 +14,7 @@ import { HoverCursor } from "../Hover";
 
 export const Section5 = () => {
   const [cursor, setCursor] = useState<"nav" | "none" | "play">("none");
+  const [mouseDown, setMouseDown] = useState(false);
   const hovered = useRef(false);
   const [ref] = useKeenSlider<HTMLDivElement>({
     renderMode: "performance",
@@ -34,13 +35,14 @@ export const Section5 = () => {
         Create excelent looking...
       </div>
       <HoverCursor
+        mouseDown={mouseDown}
         newClasses={` ${
           cursor === "play" ? "bg-prim p-10" : "p-5 border-[4px] border-bgprim"
         }`}
         state={cursor}
       ></HoverCursor>
       <div
-        className="keen-slider flex my-6 py-6 h-[18rem] hidden-cursor"
+        className="keen-slider flex my-6 py-12 h-[25rem] hidden-cursor"
         ref={ref}
         onMouseLeave={() => {
           if (navigator.maxTouchPoints > 0) return;
@@ -50,6 +52,8 @@ export const Section5 = () => {
           if (navigator.maxTouchPoints > 0) return;
           setCursor("nav");
         }}
+        onMouseDown={() => setMouseDown(true)}
+        onMouseUp={() => setMouseDown(false)}
       >
         {[img1, img2, img3, img4, img5, img6, img7].map((val, i) => {
           return (
@@ -71,12 +75,14 @@ export const Section5 = () => {
                 sizes="(max-width: 22rem) 80vw"
                 src={val}
                 onMouseEnter={() => {
+                  if (navigator.maxTouchPoints > 0) return;
                   setCursor("play");
                   hovered.current = true;
                 }}
                 onMouseLeave={() => {
+                  if (navigator.maxTouchPoints > 0) return;
                   setCursor("nav");
-                  hovered.current = true;
+                  hovered.current = false;
                 }}
                 className="hidden-cursor object-cover rounded-2xl border-bgprim border-[2px] "
               ></Image>

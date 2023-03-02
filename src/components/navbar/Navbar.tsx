@@ -65,7 +65,7 @@ export const Navbar = ({
             ? "top"
             : "topm"
         }
-        transition={{ type: "tween" }}
+        transition={{ duration: 0.1 }}
       >
         <motion.div
           className="absolute w-[200vw] blur- -bottom-[2px] z-10 h-[2px] nav-background"
