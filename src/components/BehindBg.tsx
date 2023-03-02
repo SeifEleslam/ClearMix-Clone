@@ -15,11 +15,11 @@ export const BehindBg = () => {
   }, []);
 
   return (
-    <div className="z-0 overflow-clip fixed w-full h-full top-0 left-0 blur-2xl">
-      <div className="absolute w-full h-full top-0 left-0 bg-bgprim/75 z-10 "></div>
-      <div className="fixed w-[100vw] h-[100vh] ">
+    <div className="z-[-2] overflow-clip fixed w-full h-full top-0 left-0 blur-2xl">
+      <div className="absolute z-[-1] w-full h-full top-0 left-0 bg-bgprim/75 z-10 "></div>
+      <div className="fixed z-[-2] w-[100vw] h-[100vh] ">
         <motion.div
-          className={`w-[100%] absolute inset-0 h-[100%] opacity-50 duration-[10000ms] rounded-full bg-prim `}
+          className={`w-[100%] absolute z-[-2] inset-0 h-[100%] opacity-50 duration-[10000ms] rounded-full bg-prim `}
           style={{ rotateY, rotateX: 45 }}
         ></motion.div>
       </div>

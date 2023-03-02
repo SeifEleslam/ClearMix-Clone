@@ -8,8 +8,8 @@ export const Section6 = () => {
   };
   return (
     <div className="z-20 relative mt-[10rem]">
-      <div className=" text-center flex my-12 items-center flex-col md:flex-row text-txprim justify-center md:space-x-12 space-y-12 md:space-y-0">
-        <div className="text-xl text-txprim ">
+      <div className=" text-center flex my-12 items-center flex-col md:flex-row text-txprim justify-center md:space-x-12 space-y-12 md:space-y-0 px-12">
+        <div className="text-xl text-txprim w-fit ">
           ClearMix helps companies execute video strategies with fully remote
           video production capabilities.
         </div>

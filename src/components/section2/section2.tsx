@@ -26,7 +26,7 @@ export const Section2 = () => {
     emi,
   ];
   return (
-    <div className="relative text-center mx-auto p-6 mt-20 z-20 max-w-[85rem] ">
+    <div className="text-center mx-auto p-6 mt-20 z-20 max-w-[85rem] ">
       <p className="text-txsub mb-4 tracking-[1.5vw]">
         WIDELY USED BY PROFESSIONALS
       </p>

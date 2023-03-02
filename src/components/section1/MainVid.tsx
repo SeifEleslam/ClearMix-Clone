@@ -2,7 +2,6 @@ import { useScroll, useTransform, useSpring, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import useMeasure from "react-use-measure";
 import { HoverCursor } from "../Hover";
-import { Play } from "../section5/Section5";
 import MutedPlayer from "./MutedPlayer";
 
 export const MainVid = () => {
@@ -34,9 +33,10 @@ export const MainVid = () => {
       ref={secRef}
       className="md:block hidden h-[70vh] min-h-[70vw] mt-20 mx-6"
     >
-      <HoverCursor show={hover} newClasses={` log-bg p-3`}>
-        <Play />
-      </HoverCursor>
+      <HoverCursor
+        state={hover ? "play" : "none"}
+        newClasses={` log-bg p-10`}
+      />
       <motion.div
         ref={ref}
         style={{ top: (windowH - height) / 2 }}
@@ -50,13 +50,12 @@ export const MainVid = () => {
             className="overflow-clip shadow-gold hidden-cursor relative "
             style={{ borderRadius }}
             onMouseLeave={() => {
+              if (navigator.maxTouchPoints > 0) return;
               setHover(false);
             }}
             onMouseEnter={() => {
+              if (navigator.maxTouchPoints > 0) return;
               setHover(true);
-            }}
-            onTouchEnd={(e) => {
-              e.preventDefault();
             }}
           >
             <MutedPlayer

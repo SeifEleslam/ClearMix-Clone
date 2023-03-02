@@ -10,11 +10,11 @@ import NoSSR from "../src/components/NoSSR";
 import { Section5 } from "@/src/components/section5/Section5";
 import { Section6 } from "@/src/components/section6/section6";
 import Head from "next/head";
+import { HoverCursor } from "@/src/components/Hover";
 
 export default function Home() {
   const isDesktop = useMediaQuery({ minWidth: 1024 });
   const isMobile = useMediaQuery({ maxWidth: 768 });
-
   return (
     <div>
       <Head>
@@ -25,7 +25,7 @@ export default function Home() {
         <main>
           <Navbar isDesktop={isDesktop} isMobile={isMobile} />
           <div className="mx-auto mt-[10rem] mb-[5rem]">
-            <Section1 isMobile={isMobile} />
+            <Section1 />
             <Section2 />
             <Section3 />
             <Section4 />

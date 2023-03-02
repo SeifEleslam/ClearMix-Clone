@@ -5,7 +5,7 @@ import { ChangeText } from "./ChangText";
 import { MainVid, MainVidMob } from "./MainVid";
 import MutedPlayer from "./MutedPlayer";
 
-export const Section1 = ({ isMobile }: { isMobile: boolean }) => {
+export const Section1 = () => {
   const secRef = useRef(null);
   const { scrollYProgress, scrollY } = useScroll({
     target: secRef,
@@ -19,7 +19,7 @@ export const Section1 = ({ isMobile }: { isMobile: boolean }) => {
   });
 
   return (
-    <div className="relative z-20 text-center text-txprim ">
+    <div className="z-20 text-center text-txprim ">
       <div className="mb-20 z-20">
         <motion.div
           className="md:text-5xl xl:text-8xl lg:text-7xl text-4xl mb-4"

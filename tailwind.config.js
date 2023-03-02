@@ -19,10 +19,6 @@ module.exports = {
         txsub: "#4f4f66",
         bgprim: "#080810",
         bgsec: "#252536",
-        // dark theme
-        dprim: "",
-        dtxprim: "",
-        dbgprim: "",
       },
       boxShadow: {
         // "3xl": "0 11px 41px 0 rgba(0, 0, 0, 1)",
