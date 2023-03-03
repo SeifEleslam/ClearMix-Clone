@@ -58,6 +58,16 @@ export const Section5 = () => {
         {[img1, img2, img3, img4, img5, img6, img7].map((val, i) => {
           return (
             <div
+              onMouseEnter={() => {
+                if (navigator.maxTouchPoints > 0) return;
+                setCursor("play");
+                hovered.current = true;
+              }}
+              onMouseLeave={() => {
+                if (navigator.maxTouchPoints > 0) return;
+                setCursor("nav");
+                hovered.current = false;
+              }}
               key={i}
               className={`keen-slider__slide h-[13rem] hidden-cursor bg-bgprim rounded-2xl ${
                 i % 2 === 0 ? "self-start" : "self-end"
@@ -69,21 +79,12 @@ export const Section5 = () => {
                 minHeight: "13rem",
               }}
             >
+              <div className="absolute z-10 w-full h-full top-0 left-0 bg-bgprim/25"></div>
               <Image
                 fill
                 alt=""
                 sizes="(max-width: 22rem) 80vw"
                 src={val}
-                onMouseEnter={() => {
-                  if (navigator.maxTouchPoints > 0) return;
-                  setCursor("play");
-                  hovered.current = true;
-                }}
-                onMouseLeave={() => {
-                  if (navigator.maxTouchPoints > 0) return;
-                  setCursor("nav");
-                  hovered.current = false;
-                }}
                 className="hidden-cursor object-cover rounded-2xl border-bgprim border-[2px] "
               ></Image>
             </div>

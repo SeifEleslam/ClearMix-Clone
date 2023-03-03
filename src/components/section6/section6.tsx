@@ -13,7 +13,7 @@ export const Section6 = () => {
           ClearMix helps companies execute video strategies with fully remote
           video production capabilities.
         </div>
-        <LoginButton widthClass={"text-3xl p-4 whitespace-nowrap"}>
+        <LoginButton widthClass={"text-3xl py-3 px-6 whitespace-nowrap"}>
           Learn More
         </LoginButton>
       </div>

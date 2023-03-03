@@ -2,13 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
-.font-outline {
-  text-shadow: 0 1px 1px #aaa, 0 -1px 1px #aaa, 1px 0 1px #aaa, -1px 0 1px #aaa;
-  color: #000;
-}
-
 .nav-background {
   background: linear-gradient(0.35turn, #c40235 35%, #ff5800 45%, #080810 50%, #ff5800 55%, #c40235);
 }
@@ -30,9 +23,7 @@
       #ff8605);
 }
 
-.log-bg2 {
-  background: linear-gradient(0.35turn, #9b9bc9, #9b9bc9, #9b9bc9);
-}
+
 
 .textgrd {
   padding:4px;
@@ -41,6 +32,18 @@
       #e60f47,
       #ff5800,
       #ff5800);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.logogrd{
+  /* text-shadow: 0 1px 1px #aaa, 0 -1px 1px #aaa, 1px 0 1px #aaa, -1px 0 1px #aaa; */
+  padding: 4px;
+  background: linear-gradient(0.15turn,
+        #30699e 50%,
+        #e60f47,
+        #c40235,
+        #ff5800,
+        #ff8605);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

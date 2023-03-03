@@ -54,7 +54,7 @@ export const MenuBody = ({ open }: { open: boolean }) => {
 const Item = ({ children, i }: { children: React.ReactNode; i: number }) => {
   return (
     <motion.a
-      className="text-3xl text-txprim my-4"
+      className="text-3xl text-links my-4"
       href={"#" + children}
       initial={{
         opacity: 0,

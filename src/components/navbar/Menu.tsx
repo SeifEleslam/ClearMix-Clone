@@ -30,7 +30,7 @@ export const Menu = ({ open, setOpen }: { open: boolean; setOpen: any }) => {
           return (
             <a
               key={i}
-              className="text-md text-txprim flex-1 mx-4"
+              className="text-lg text-links flex-1 mx-4"
               href={"#" + item}
             >
               {item}
@@ -38,8 +38,8 @@ export const Menu = ({ open, setOpen }: { open: boolean; setOpen: any }) => {
           );
         })}
         <LoginButton
-          widthClass="p-2 flex-1 text-md p-3 mx-4 border-[2px] border-[#9b9bc9]"
-          colorClass="log-bg2"
+          widthClass="py-3 px-6 flex-1 text-md mx-4 border-[2px] border-links"
+          colorClass="bg-links"
         >
           LOGIN
         </LoginButton>
