@@ -101,7 +101,7 @@ export const Comparance = ({ width }: { width: number }) => {
         </div>
       </motion.div>
       <div className="w-full bg-bgprim">
-        <div className="absolute w-full h-fit top-0 left-0 bg-bgprim/25"></div>
+        <div className="absolute w-full h-full top-0 left-0 bg-bgprim/25"></div>
         {render && (
           <ReactPlayer
             ref={ref2}
