@@ -33,7 +33,11 @@ export const Navbar = ({
     "flex justify-between items-center",
   ].join(" ");
   const container = {
-    hidden: { y: "-100%", background: "rgba(8, 8, 16, 1)", padding: 0 },
+    hidden: {
+      y: "-100%",
+      background: "rgba(8, 8, 16, 1)",
+      padding: 0,
+    },
     visible: {
       y: "0%",
       background: "rgba(8, 8, 16, 1)",
@@ -65,6 +69,7 @@ export const Navbar = ({
             ? "top"
             : "topm"
         }
+        transition={{ type: "tween", ease: "easeInOut", duration: 0.4 }}
       >
         <motion.div
           className="absolute w-[200vw] blur- -bottom-[2px] z-10 h-[2px] nav-background"

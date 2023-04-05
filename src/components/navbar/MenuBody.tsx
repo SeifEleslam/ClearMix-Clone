@@ -42,8 +42,11 @@ export const MenuBody = ({ open }: { open: boolean }) => {
 
           <motion.div
             className="bg-bgprim absolute left-0 right-0 mx-auto top-0 bottom-0 my-auto z-0 w-24 h-24 rounded-full"
-            initial={{ scale: 4 }}
-            animate={{ scale: 15 }}
+            initial={{ scale: 1 }}
+            animate={{
+              scale: 15,
+              transition: { ease: "easeInOut", type: "tween" },
+            }}
           ></motion.div>
         </motion.div>
       )}
